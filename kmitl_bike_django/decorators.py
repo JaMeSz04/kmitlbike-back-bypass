@@ -14,9 +14,9 @@ def token_required(view_func):
                 request.token = Token.objects.get(pk=token)
                 request.user = request.token.user
                 if not request.token.user.is_active:
-                    return HttpResponse(status=HTTP_401_UNAUTHORIZED)
+                    return HttpResponse(status=HTTP_401_UNAUTHORIZED, content_type="application/json")
             except Token.DoesNotExist:
-                return HttpResponse(status=HTTP_401_UNAUTHORIZED)
+                return HttpResponse(status=HTTP_401_UNAUTHORIZED, content_type="application/json")
             return view_func(request, *args, **kwargs)
-        return HttpResponse(status=HTTP_403_FORBIDDEN)
+        return HttpResponse(status=HTTP_403_FORBIDDEN, content_type="application/json")
     return _wrapped_view

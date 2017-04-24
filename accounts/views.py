@@ -13,7 +13,7 @@ from accounts.models import UserProfile
 from kmitl_bike_django.decorators import token_required
 
 
-class AccountsAPI(object):
+class AuthenticationAPI(object):
 
     @staticmethod
     def access_token(request):
@@ -98,5 +98,32 @@ class AccountsAPI(object):
             except ValidationError as e:
                 response = {"message": str(e.message)}
                 return HttpResponse(json.dumps(response), status=HTTP_406_NOT_ACCEPTABLE, content_type="application/json")
+        else:
+            return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+
+
+class AccountsAPI(object):
+
+    @staticmethod
+    @token_required
+    def get_user_session(request, user_id=None):
+        if request.method == "GET":
+            return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
+        else:
+            return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+
+    @staticmethod
+    @token_required
+    def get_user_history_list(request, user_id=None):
+        if request.method == "GET":
+            return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
+        else:
+            return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+
+    @staticmethod
+    @token_required
+    def get_user_history(request, user_id=None, hist_id=None):
+        if request.method == "GET":
+            return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
         else:
             return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")

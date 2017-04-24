@@ -16,9 +16,26 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from accounts.views import AccountsAPI
+from accounts.views import AuthenticationAPI, AccountsAPI
+from bikes.views import BikesAPI
+from reports.views import ReportsAPI
+from services.views import StatusAPI
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/v1/auth/register', AccountsAPI.register),
+    url(r'^api/v1/auth/access_token', AuthenticationAPI.access_token),
+    url(r'^api/v1/auth/login', AuthenticationAPI.login),
+    url(r'^api/v1/auth/logout', AuthenticationAPI.logout),
+    url(r'^api/v1/auth/register', AuthenticationAPI.register),
+    url(r'^api/v1/accounts/(?P<user_id>\d+)/session', AccountsAPI.get_user_session),
+    url(r'^api/v1/accounts/(?P<user_id>\d+)/history/list', AccountsAPI.get_user_history_list),
+    url(r'^api/v1/accounts/(?P<user_id>\d+)/history/(?P<hist_id>\d+)', AccountsAPI.get_user_history),
+    url(r'^api/v1/bikes/(?P<bike_id>\d+)/list', BikesAPI.get_available_bikes),
+    url(r'^api/v1/bikes/(?P<bike_id>\d+)/borrow', BikesAPI.borrow_bike),
+    url(r'^api/v1/bikes/(?P<bike_id>\d+)/return', BikesAPI.return_bike),
+    url(r'^api/v1/bikes/(?P<bike_id>\d+)/update', BikesAPI.update_bike_location),
+    url(r'^api/v1/reports/send_report', ReportsAPI.send_report),
+    url(r'^api/v1/reports/send_feedback', ReportsAPI.send_feedback),
+    url(r'^api/v1/services/check_update', StatusAPI.check_update),
+    url(r'^api/v1/services/terms_conditions', StatusAPI.get_terms_conditions),
 ]

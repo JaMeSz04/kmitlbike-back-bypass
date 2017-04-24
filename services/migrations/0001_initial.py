@@ -32,23 +32,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AndroidAppVersion',
             fields=[
-                ('appversion_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='status.AppVersion')),
+                ('appversion_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='services.AppVersion')),
             ],
             options={
                 'verbose_name_plural': 'Android Application Versions',
                 'verbose_name': 'Android Application Version',
             },
-            bases=('status.appversion',),
+            bases=('services.appversion',),
         ),
         migrations.CreateModel(
             name='IosAppVersion',
             fields=[
-                ('appversion_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='status.AppVersion')),
+                ('appversion_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='services.AppVersion')),
             ],
             options={
                 'verbose_name_plural': 'iOS Application Versions',
                 'verbose_name': 'iOS Application Version',
             },
-            bases=('status.appversion',),
+            bases=('services.appversion',),
         ),
     ]

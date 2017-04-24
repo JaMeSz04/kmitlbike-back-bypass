@@ -10,6 +10,9 @@ from accounts.models import UserExtraProfile
 
 class KMITLBackend(object):
 
+    def __init__(self):
+        requests.packages.urllib3.disable_warnings()
+
     class Information(object):
         KMITL_ID = 3
         FIRST_NAME = 6

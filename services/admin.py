@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import register
 
 from kmitl_bike_django.utils import AbstractAdmin
-from status.models import AppVersion, AndroidAppVersion, IosAppVersion
+from services.models import AppVersion, AndroidAppVersion, IosAppVersion
 
 
 @register(AppVersion, site=admin.site)

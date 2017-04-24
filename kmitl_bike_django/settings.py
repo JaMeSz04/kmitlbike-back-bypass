@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'bikes',
     'reports',
-    'status'
+    'services'
 ]
 
 MIDDLEWARE = [

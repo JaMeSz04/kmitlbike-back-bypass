@@ -10,11 +10,11 @@ class AppVersion(AbstractModel):
         verbose_name = "Mobile Application Version"
         verbose_name_plural = "Mobile Application Versions"
 
-    class Platform:
-        ANDROID = 1
-        IOS = 2
+    class Platform(object):
+        ANDROID = "Android"
+        IOS = "iOS"
 
-    platform = models.IntegerField("Platform", null=False, blank=False)
+    platform = models.CharField("Platform", max_length=8,  null=False, blank=False)
     version_code = models.CharField("Version code", max_length=32)
     version_name = models.CharField("Version name", max_length=32)
 
