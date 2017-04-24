@@ -25,13 +25,12 @@ SECRET_KEY = 't2ft2hs5u1a*ry!2vm#y47qi9n1w@yo_t*qa7$1m$19*lpd2mz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    #'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reversion',
-    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'accounts',
@@ -132,23 +130,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOW_METHODS = (
-    'GET',
-    'POST',
-)
-
-CORS_ALLOW_HEADER = (
-    'x-requested-with',
-    'content-type',
-    'accept',
-    'origin',
-    'authorization',
-    'x-csrftoken'
-)
-
-CORS_ALLOW_CREDENTIALS = True
+# AUTHENTICATION_BACKENDS = ('kmitl_bike_django.accounts.backends.KMITLBackend',
+#                            'django.contrib.auth.backends.ModelBackend',)
 
 
 LOGGING = {

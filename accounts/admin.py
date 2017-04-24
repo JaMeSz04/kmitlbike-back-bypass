@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import register
 from django.utils import timezone
 
-from accounts.models import UserProfile, ExtraUserProfile, UserHistory
+from accounts.models import UserProfile, UserExtraProfile, UserHistory
 from kmitl_bike_django.utils import AbstractAdmin
 
 
@@ -13,11 +13,11 @@ class UserProfileAdmin(AbstractAdmin):
         model = UserProfile
 
 
-@register(ExtraUserProfile, site=admin.site)
+@register(UserExtraProfile, site=admin.site)
 class ExtraUserProfileAdmin(AbstractAdmin):
 
     class Meta:
-        model = ExtraUserProfile
+        model = UserExtraProfile
 
 
 @register(UserHistory, site=admin.site)

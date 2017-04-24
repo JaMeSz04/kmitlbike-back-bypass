@@ -11,7 +11,7 @@ class UserProfile(AbstractModel):
         verbose_name = "User Profile"
         verbose_name_plural = "Users\' Profiles"
 
-    class Gender:
+    class Gender(object):
         MALE = 1
         FEMALE = 2
         OTHER = 3
@@ -22,20 +22,20 @@ class UserProfile(AbstractModel):
         (Gender.OTHER, "Other"),
     )
 
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
-    gender = models.IntegerField("Gender", null=False)
-    phone_no = models.CharField("Phone no.", max_length=32, null=False)
-    point = models.IntegerField("Point", null=False, default=100)
+    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    gender = models.IntegerField("Gender", null=False, blank=False, choices=_gender)
+    phone_no = models.CharField("Phone no.", max_length=32, null=False, blank=False)
+    point = models.IntegerField("Point", null=False, blank=False, default=100)
 
     def __str__(self):
         return self.user.username
 
 
-class ExtraUserProfile(AbstractModel):
+class UserExtraProfile(AbstractModel):
 
     class Meta:
-        verbose_name = "Extra User Profile"
-        verbose_name_plural = "Extra Users\' Profiles"
+        verbose_name = "User Extra Profile"
+        verbose_name_plural = "Users\' Extra Profiles"
 
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     kmitl_id = models.CharField("KMITL ID", max_length=32, null=False, blank=True)
