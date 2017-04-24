@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61af21fa-e0fd-4442-8841-d5eabcd7b93b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bikes/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reports/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/services/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/services/migrations/0002_auto_20170424_2053.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/admin.py" afterPath="$PROJECT_DIR$/accounts/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/admin.py" afterPath="$PROJECT_DIR$/bikes/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/models.py" afterPath="$PROJECT_DIR$/bikes/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/views.py" afterPath="$PROJECT_DIR$/bikes/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/settings.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/utils.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/admin.py" afterPath="$PROJECT_DIR$/reports/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/models.py" afterPath="$PROJECT_DIR$/reports/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/admin.py" afterPath="$PROJECT_DIR$/services/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/models.py" afterPath="$PROJECT_DIR$/services/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/models.py" afterPath="$PROJECT_DIR$/accounts/models.py" />
     </list>
     <ignored path="kmitl_bike_django.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +40,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="56" column="37" lean-forward="true" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+            <state relative-caret-position="20">
+              <caret line="46" column="61" lean-forward="true" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -104,7 +89,6 @@
         <option value="$PROJECT_DIR$/bikes/forms.py" />
         <option value="$PROJECT_DIR$/accounts/backend.py" />
         <option value="$PROJECT_DIR$/kmitl_bike_django/decoratorws.py" />
-        <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/accounts/forms.py" />
         <option value="$PROJECT_DIR$/status/models.py" />
         <option value="$PROJECT_DIR$/accounts/backends.py" />
@@ -123,6 +107,7 @@
         <option value="$PROJECT_DIR$/services/admin.py" />
         <option value="$PROJECT_DIR$/reports/models.py" />
         <option value="$PROJECT_DIR$/reports/admin.py" />
+        <option value="$PROJECT_DIR$/accounts/models.py" />
       </list>
     </option>
   </component>
@@ -1053,14 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reports/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reports/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -1071,10 +1048,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/reports/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="56" column="37" lean-forward="true" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+        <state relative-caret-position="20">
+          <caret line="46" column="61" lean-forward="true" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
           <folding />
         </state>
       </provider>

@@ -62,8 +62,6 @@ class UserHistory(AbstractModel):
     selected_plan = models.ForeignKey(BikeUsagePlan, null=False, on_delete=models.CASCADE)
     borrow_time = models.DateTimeField("Borrow time", auto_now_add=True, null=False)
     return_time = models.DateTimeField("Return time", auto_now_add=False, auto_now=False, null=True)
-    total_time = models.CharField("Total time", max_length=16, null=True)
-    total_distance = models.CharField("Total distance", max_length=16, null=True)
     route_line = models.TextField("Route line", null=False, default="[]")
 
     def __str__(self):
