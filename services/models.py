@@ -14,7 +14,7 @@ class AppVersion(AbstractModel):
         ANDROID = "Android"
         IOS = "iOS"
 
-    platform = models.CharField("Platform", max_length=8,  null=False, blank=False)
+    platform = models.CharField("Platform", max_length=8, null=False, blank=False)
     version_code = models.CharField("Version code", max_length=32)
     version_name = models.CharField("Version name", max_length=32)
 

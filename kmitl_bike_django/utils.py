@@ -1,5 +1,6 @@
 from django.contrib.admin import ModelAdmin
 from django.db import models
+from reversion.admin import VersionAdmin
 
 
 class AbstractModel(models.Model):
@@ -11,7 +12,7 @@ class AbstractModel(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
 
 
-class AbstractAdmin(ModelAdmin):
+class AbstractAdmin(VersionAdmin):
 
     list_per_page = 50
 

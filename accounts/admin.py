@@ -12,12 +12,16 @@ class UserProfileAdmin(AbstractAdmin):
     class Meta:
         model = UserProfile
 
+    list_display = ('user', 'gender', 'phone_no', 'point')
+
 
 @register(UserExtraProfile, site=admin.site)
-class ExtraUserProfileAdmin(AbstractAdmin):
+class UserExtraProfileAdmin(AbstractAdmin):
 
     class Meta:
         model = UserExtraProfile
+
+    list_display = ('user', 'first_name', 'last_name', 'phone_no', 'faculty')
 
 
 @register(UserHistory, site=admin.site)
@@ -26,9 +30,7 @@ class UserHistoryAdmin(AbstractAdmin):
     class Meta:
         model = UserHistory
 
-    list_display = tuple(field.name for field in UserHistory._meta.get_fields()) + ('overdue',)
-
-    exclude = ('created_date', 'updated_date', 'route_line')
+    list_display = ('user', 'bike', 'selected_plan', 'borrow_time', 'return_time', 'overdue')
 
     def overdue(self, instance):
         if not instance.return_time:

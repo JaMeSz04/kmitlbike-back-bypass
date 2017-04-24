@@ -11,16 +11,18 @@ class AppVersionAdmin(AbstractAdmin):
     class Meta:
         model = AppVersion
 
+    list_display = ('version_code', 'version_name', 'platform')
+
 
 @register(AndroidAppVersion, site=admin.site)
-class AndroidAppVersionAdmin(AbstractAdmin):
+class AndroidAppVersionAdmin(AppVersionAdmin):
 
     class Meta:
         model = AndroidAppVersion
 
 
 @register(IosAppVersion, site=admin.site)
-class IosAppVersionAdmin(AbstractAdmin):
+class IosAppVersionAdmin(AppVersionAdmin):
 
     class Meta:
         model = IosAppVersion

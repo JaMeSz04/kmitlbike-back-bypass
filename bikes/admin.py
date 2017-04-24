@@ -12,12 +12,16 @@ class BikeModelAdmin(AbstractAdmin):
     class Meta:
         model = BikeModel
 
+    list_display = ('model_name',)
+
 
 @register(Bike, site=admin.site)
 class BikeAdmin(AbstractAdmin):
 
     class Meta:
         model = Bike
+
+    list_display = ('bike_name', 'bike_model', 'is_available', 'passcode')
 
     form = BikeForm
 
@@ -27,3 +31,5 @@ class BikeUsagePlanAdmin(AbstractAdmin):
 
     class Meta:
         model = BikeUsagePlan
+
+    list_display = ('plan_name', 'period', 'price')

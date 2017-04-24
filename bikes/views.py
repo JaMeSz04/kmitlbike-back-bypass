@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from rest_framework.status import *
 
+from bikes.models import Bike
 from kmitl_bike_django.decorators import token_required
 
 

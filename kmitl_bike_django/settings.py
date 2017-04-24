@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'location_field.apps.DefaultConfig',
     'reversion',
     'rest_framework',
     'rest_framework.authtoken',
@@ -130,8 +131,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 
-# AUTHENTICATION_BACKENDS = ('kmitl_bike_django.accounts.backends.KMITLBackend',
-#                            'django.contrib.auth.backends.ModelBackend',)
+GOOGLE_MAP_API_KEY = "AIzaSyBJ9F6VpRRPLJNi1i2zfynK_xNBx8eCIbc"
+
+GOOGLE_DEFAULT_LOCATION = "13.7297551064,100.775324106"
 
 
 LOGGING = {
@@ -176,3 +178,4 @@ LOGGING = {
         }
     }
 }
+
