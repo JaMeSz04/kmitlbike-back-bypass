@@ -1,6 +1,6 @@
 # coding=utf-8
 import requests
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.core.signing import Signer
 from rest_framework.authtoken.models import Token
@@ -9,9 +9,6 @@ from accounts.models import UserExtraProfile
 
 
 class KMITLBackend(object):
-
-    def __init__(self):
-        requests.packages.urllib3.disable_warnings()
 
     class Information(object):
         KMITL_ID = 3
