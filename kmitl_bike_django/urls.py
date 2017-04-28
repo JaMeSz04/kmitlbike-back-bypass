@@ -16,16 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from accounts.api import api_access_token, api_login, api_logout, api_register
-
+from accounts.api import api_access_token, api_login, api_logout, api_register, api_profile
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/v1/accounts/access_token', api_access_token.access_token),
-    url(r'^api/v1/accounts/login', api_login.login),
-    url(r'^api/v1/accounts/logout', api_logout.logout),
-    url(r'^api/v1/accounts/register', api_register.register),
+    url(r'^api/v1/accounts/access_token', api_access_token.AccessTokenView.as_view()),
+    url(r'^api/v1/accounts/login', api_login.LoginView.as_view()),
+    url(r'^api/v1/accounts/logout', api_logout.LogoutView.as_view()),
+    url(r'^api/v1/accounts/register', api_register.RegisterView.as_view()),
+    url(r'^api/v1/accounts/profile', api_profile.ProfileView.as_view()),
     # url(r'^api/v1/histories/(?P<user_id>\d+)/session', get_user_session),
     # url(r'^api/v1/histories/(?P<user_id>\d+)/history/list', get_user_history_list),
     # url(r'^api/v1/histories/(?P<user_id>\d+)/history/(?P<hist_id>\d+)', get_user_history),

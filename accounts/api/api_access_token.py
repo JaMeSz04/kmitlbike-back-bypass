@@ -1,15 +1,34 @@
-from django.http import HttpResponse
+from django.db import IntegrityError
+from rest_framework import serializers
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 from rest_framework.status import *
 
+from kmitl_bike_django.utils import AbstractAPIView
 
-def access_token(request):
-    if request.method == "POST":
-        token = request.POST.get("token")
+
+class AccessTokenSerializer(serializers.Serializer):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["token"] = serializers.CharField()
+
+    def validate(self, attrs):
+        token = attrs.get("token")
         try:
-            token, _ = Token.objects.get_or_create(key=token)
-            response = {"token": token.key}
-            return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
+            token, created = Token.objects.get_or_create(key=token)
+            return {"token": token.key}
         except IntegrityError:
-            return HttpResponse(status=HTTP_401_UNAUTHORIZED, content_type="application/json")
-    else:
-        return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+            raise serializers.ValidationError("The token is already expired.")
+
+
+class AccessTokenView(AbstractAPIView):
+
+    serializer_class = AccessTokenSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            return Response(serializer.validated_data, status=HTTP_200_OK)
+        error_message = self.get_error_message(serializer.errors)
+        return Response({"message": error_message}, status=HTTP_400_BAD_REQUEST)

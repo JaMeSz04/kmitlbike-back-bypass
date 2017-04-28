@@ -22,13 +22,17 @@ class UserProfile(AbstractModel):
         (Gender.OTHER, "Other"),
     )
 
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
     gender = models.IntegerField("Gender", null=False, blank=False, choices=_gender)
     phone_no = models.CharField("Phone no.", max_length=32, null=False, blank=False)
     point = models.IntegerField("Point", null=False, blank=False, default=100)
 
     def __str__(self):
         return self.user.username
+
+    @staticmethod
+    def get_gender():
+        return UserProfile._gender
 
 
 class UserExtraProfile(AbstractModel):
@@ -37,7 +41,7 @@ class UserExtraProfile(AbstractModel):
         verbose_name = "User Extra Profile"
         verbose_name_plural = "Users\' Extra Profiles"
 
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
     kmitl_id = models.CharField("KMITL ID", max_length=32, null=False, blank=True)
     first_name = models.CharField("First name", max_length=255, null=False, blank=True)
     last_name = models.CharField("Last name", max_length=255, null=False, blank=True)

@@ -20,6 +20,12 @@ class KMITLBackend(object):
         FORWARD_EMAIL = 22
         EMAIL = 24
 
+    class Status(object):
+        FIRST_TIME = 1
+        ALREADY_EXISTS = 2
+        INVALID = 3
+        CONNECTION_FAIL = 4
+
     NAC_KMITL_URL = "https://nac.kmitl.ac.th/dana-na/auth/url_default/login.cgi"
 
     IAM_KMITL_URL = "https://iam.kmitl.ac.th/statusProfile.php"
@@ -37,31 +43,22 @@ class KMITLBackend(object):
             'btnSubmit': 'Sign In'}
         try:
             requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
-            response = requests.post(KMITLBackend.NAC_KMITL_URL,
-                                     form_data,
-                                     headers=headers,
-                                     verify=False,
-                                     allow_redirects=False)
+            response = requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
             if response.status_code == 302:
-                # positive response is given, try second attempt
                 if KMITLBackend.is_authenticated(response):
                     user = KMITLBackend.get_user(username)
                     if user:
-                        # if user is authorized and already in database
                         KMITLBackend.get_user_information(username, password, user)
                         token, _ = Token.objects.get_or_create(user=user)
-                        return "exists", token
+                        return KMITLBackend.Status.ALREADY_EXISTS, token
                     else:
-                        # if user is authorized but not in database
-                        return "first_time", None
+                        return KMITLBackend.Status.FIRST_TIME, None
                 else:
-                    # invalid username or password
-                    return "denied", None
+                    return KMITLBackend.Status.INVALID, None
             else:
-                # negative response is given
-                return "fail", None
+                return KMITLBackend.Status.CONNECTION_FAIL, None
         except requests.HTTPError:
-            return "error", None
+            return KMITLBackend.Status.CONNECTION_FAIL, None
 
     @staticmethod
     def is_authenticated(responses):
