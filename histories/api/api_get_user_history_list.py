@@ -1,12 +1,20 @@
-from django.http import HttpResponse
-from rest_framework.status import *
+from django.utils.decorators import method_decorator
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.mixins import ListModelMixin
 
+from histories.models import UserHistory
+from histories.serializers import UserHistoryListSerializer
 from kmitl_bike_django.decorators import token_required
+from kmitl_bike_django.utils import AbstractAPIView
 
 
-@token_required
-def get_user_history_list(request, user_id=None):
-    if request.method == "GET":
-        return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
-    else:
-        return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+class GetUserHistoryListView(AbstractAPIView, ListModelMixin):
+
+    serializer_class = UserHistoryListSerializer
+
+    @method_decorator(token_required)
+    def get(self, request, user_id):
+        if int(user_id) is request.user.id:
+            self.queryset = UserHistory.objects.filter(user_id=user_id, return_time__isnull=False)
+            return self.list(request)
+        raise AuthenticationFailed()

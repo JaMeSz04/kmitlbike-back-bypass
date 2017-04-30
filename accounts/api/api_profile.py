@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AnonymousUser
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, AuthenticationFailed
 from rest_framework.mixins import RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.status import *
@@ -45,23 +45,26 @@ class ProfileView(AbstractAPIView, RetrieveModelMixin, UpdateModelMixin):
             raise NotFound("User does not exist.")
 
     @method_decorator(token_required)
-    def get(self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            instance = self.get_object(request)
-            user_profile_serializer = UserProfileSerializer(instance)
-            return Response(user_profile_serializer.data, status=HTTP_200_OK)
-        error_message = self.get_error_message(serializer.errors)
-        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
+    def get(self, request, user_id):
+        if int(user_id) is request.user.id:
+            serializer = self.get_serializer(data=request.data)
+            if serializer.is_valid():
+                instance = self.get_object(request)
+                user_profile_serializer = UserProfileSerializer(instance)
+                return Response(user_profile_serializer.data, status=HTTP_200_OK)
+            error_message = self.get_error_message(serializer.errors)
+            return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
+        raise AuthenticationFailed()
 
     @method_decorator(token_required)
-    def post(self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            instance = self.get_object(request)
-            serializer.update(instance, request.data)
-            user_profile_serializer = UserProfileSerializer(instance)
-            return Response(user_profile_serializer.data, status=HTTP_200_OK)
-        error_message = self.get_error_message(serializer.errors)
-        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
-
+    def post(self, request, user_id):
+        if int(user_id) is request.user.id:
+            serializer = self.get_serializer(data=request.data)
+            if serializer.is_valid():
+                instance = self.get_object(request)
+                serializer.update(instance, request.data)
+                user_profile_serializer = UserProfileSerializer(instance)
+                return Response(user_profile_serializer.data, status=HTTP_200_OK)
+            error_message = self.get_error_message(serializer.errors)
+            return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
+        raise AuthenticationFailed()

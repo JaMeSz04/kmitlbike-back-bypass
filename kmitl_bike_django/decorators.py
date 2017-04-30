@@ -12,8 +12,6 @@ def token_required(view_func):
             token = str(auth_header)
             try:
                 request.token = Token.objects.get(pk=token)
-                if request.user is None:
-                    request.token.user.update_last_login()
                 request.user = request.token.user
                 if not request.token.user.is_active:
                     error_message = "This account has been suspended. Please contact our staff for more detail."

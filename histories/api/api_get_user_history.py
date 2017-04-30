@@ -1,12 +1,25 @@
-from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from rest_framework.exceptions import AuthenticationFailed, NotFound
+from rest_framework.response import Response
 from rest_framework.status import *
 
+from histories.models import UserHistory
+from histories.serializers import UserHistorySerializer
 from kmitl_bike_django.decorators import token_required
+from kmitl_bike_django.utils import AbstractAPIView
 
 
-@token_required
-def get_user_history(request, user_id=None, hist_id=None):
-    if request.method == "GET":
-        return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
-    else:
-        return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+class GetUserHistoryView(AbstractAPIView):
+
+    serializer_class = UserHistorySerializer
+
+    @method_decorator(token_required)
+    def get(self, request, user_id=None, hist_id=None):
+        if int(user_id) is request.user.id:
+            try:
+                user_history = UserHistory.objects.get(id=hist_id)
+                data = self.serializer_class(user_history).data
+                return Response(data, status=HTTP_200_OK)
+            except UserHistory.DoesNotExist:
+                raise NotFound("User history does not exist.")
+        raise AuthenticationFailed()

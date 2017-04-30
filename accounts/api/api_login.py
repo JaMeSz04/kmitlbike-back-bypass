@@ -1,3 +1,4 @@
+from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.response import Response
 from rest_framework.status import *
@@ -24,6 +25,8 @@ class LoginSerializer(serializers.Serializer):
                 user = token.user
                 if user.is_active:
                     user_profile = UserProfile.objects.get(user=user)
+                    user.last_login = timezone.now()
+                    user.save()
                     serializer = UserProfileSerializer(user_profile)
                     data = serializer.data
                     data["result"] = result

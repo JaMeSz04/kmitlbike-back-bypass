@@ -39,7 +39,7 @@ class ReturnBikeSerializer(serializers.Serializer):
             PointTransaction.objects.create(user=user, point=user_history.selected_plan.price,
                                             transaction_type=PointTransaction.Type.REFUND)
         else:
-            minutes_overdue = total_duration // 60
+            minutes_overdue = total_duration - user_history.selected_plan // 60
             PointTransaction.objects.create(user=user, point=-minutes_overdue,
                                             transaction_type=PointTransaction.Type.PENALTY)
         point_left = PointTransaction.get_point(user)

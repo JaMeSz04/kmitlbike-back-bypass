@@ -17,15 +17,15 @@ def calculate_distance(route_line):
     distance = 0
     route_line = json.loads(route_line)
     for index in range(len(route_line) - 1):
-        lon1 = route_line[index]["lon"]
-        lat1 = route_line[index]["lat"]
-        lon2 = route_line[index + 1]["lon"]
-        lat2 = route_line[index + 1]["lat"]
+        lon1 = route_line[index]["longitude"]
+        lat1 = route_line[index]["latitude"]
+        lon2 = route_line[index + 1]["longitude"]
+        lat2 = route_line[index + 1]["latitude"]
         distance += haversine(lon1, lat1, lon2, lat2)
     return "%.1f" % distance
 
 
 def calculate_duration(start, end):
     time_diff = end - start
-    duration = datetime.timedelta(seconds=time_diff.total_seconds())
+    duration = datetime.timedelta(seconds=round(time_diff.total_seconds()))
     return str(duration)
