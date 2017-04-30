@@ -15,6 +15,9 @@ class Feedback(AbstractModel):
     like = models.BooleanField("Like", null=False, blank=False)
     comment = models.TextField("Comment", null=False, blank=True)
 
+    def __str__(self):
+        return str(self.id)
+
 
 class Report(AbstractModel):
 
@@ -37,4 +40,11 @@ class Report(AbstractModel):
 
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     report_type = models.IntegerField("Report type", null=False, blank=False)
-    detail = models.TextField("Report detail", null=False, blank=True)
+    detail = models.TextField("Report detail", null=False, blank=False)
+
+    @staticmethod
+    def get_type():
+        return Report._type
+
+    def __str__(self):
+        return str(self.id)

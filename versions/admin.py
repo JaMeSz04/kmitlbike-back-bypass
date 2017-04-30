@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import register
 
 from kmitl_bike_django.utils import AbstractAdmin
+from versions.forms import AndroidAppVersionForm, IosAppVersionForm
 from versions.models import AppVersion, AndroidAppVersion, IosAppVersion
 
 
@@ -19,9 +20,13 @@ class AndroidAppVersionAdmin(AppVersionAdmin):
     class Meta:
         model = AndroidAppVersion
 
+    form = AndroidAppVersionForm
+
 
 @register(IosAppVersion, site=admin.site)
 class IosAppVersionAdmin(AppVersionAdmin):
 
     class Meta:
         model = IosAppVersion
+
+    form = IosAppVersionForm

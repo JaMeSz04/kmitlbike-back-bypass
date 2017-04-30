@@ -108,6 +108,11 @@ GOOGLE_DEFAULT_LOCATION = "13.7297551064,100.775324106"
 DEFAULT_POINTS = 100
 
 
+ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.bike.kmitl.kmitlbike"
+
+IOS_APP_URL = "https://itunes.apple.com/th/app/kmitl-bike/id1133585302"
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

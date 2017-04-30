@@ -1,21 +1,45 @@
-from django.http import HttpResponse
+from packaging.version import Version, InvalidVersion
+from rest_framework import serializers
+from rest_framework.response import Response
 from rest_framework.status import *
 
-from versions.utils import requires_update, get_latest_version
+from kmitl_bike_django.utils import AbstractAPIView
+from versions.models import AppVersion
+from versions.serializers import AppVersionSerializer
 
 
-def check_update(request):
-    if request.method == "POST":
-        platform = request.POST.get("platform")
-        app_version = request.POST.get("app_version")
-        b_requires_update, update_url = requires_update(platform, app_version)
-        if b_requires_update:
-            response = {"requires_update": True,
-                        "update_url": update_url,
-                        "platform": platform,
-                        "critical_version": get_latest_version(platform)}
-        else:
-            response = {"requires_update": False}
-        return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
-    else:
-        return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+class CheckUpdateSerializer(serializers.Serializer):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["platform"] = serializers.CharField()
+        self.fields["version_code"] = serializers.CharField()
+
+    def validate(self, attrs):
+        platform = attrs.get("platform")
+        version_code = attrs.get("version_code")
+        app_version = AppVersion.objects.filter(platform=platform).last()
+        if app_version is None:
+            raise serializers.ValidationError("No version available.")
+        try:
+            current_version = Version(version_code)
+            latest_version = Version(app_version.version_code)
+            if current_version < latest_version:
+                data = AppVersionSerializer(app_version).data
+                data["required_update"] = True
+                return data
+            return {"required_update": False}
+        except InvalidVersion:
+            raise serializers.ValidationError("Invalid app version.")
+
+
+class CheckUpdateView(AbstractAPIView):
+
+    serializer_class = CheckUpdateSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            return Response(serializer.validated_data, status=HTTP_200_OK)
+        error_message = self.get_error_message(serializer.errors)
+        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)

@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.core.signing import Signer
+from django.db import IntegrityError
 from rest_framework.authtoken.models import Token
 
 from accounts.models import UserExtraProfile
@@ -98,7 +99,7 @@ class KMITLBackend(object):
                 "manage_login": username.lower().strip(),
                 "manage_pass": password,
                 "PeopleType": KMITLBackend.get_user_type(username),
-                "accept": "+%E0%B8%A2%E0%B8%AD%E0%B8%A1%E0%B8%A3%E0%B8%B1%E0%B8%9A+%28Accept%29+"}
+                "accept": "+ยอมรับ+(Accept)+"}
             try:
                 response = requests.post(KMITLBackend.IAM_KMITL_URL,
                                          form_data,
@@ -129,11 +130,10 @@ class KMITLBackend(object):
                                                         faculty=faculty,
                                                         email=email,
                                                         forward_email=forward_email)
-                    except Exception as e:
-                        print(e)
-
-            except Exception as e:
-                print(e)
+                    except IntegrityError:
+                        pass
+            except requests.HTTPError:
+                pass
 
     @staticmethod
     def read_url_params(url, parameter):

@@ -20,4 +20,7 @@ class ReportAdmin(AbstractAdmin):
     class Meta:
         model = Report
 
-    list_display = ("user", "report_type", "detail")
+    list_display = ("user", "type_name", "detail")
+
+    def type_name(self, instance):
+        return Report.get_type()[instance.report_type][1]
