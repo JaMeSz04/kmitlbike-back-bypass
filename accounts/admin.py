@@ -11,7 +11,7 @@ class UserProfileAdmin(AbstractAdmin):
     class Meta:
         model = UserProfile
 
-    list_display = ('user', 'gender', 'phone_no', 'point')
+    list_display = ("user", "gender", "phone_no", "point")
 
 
 # @register(UserExtraProfile, site=admin.site)
@@ -20,4 +20,4 @@ class UserProfileAdmin(AbstractAdmin):
 #     class Meta:
 #         model = UserExtraProfile
 #
-#     list_display = ('user', 'first_name', 'last_name', 'phone_no', 'faculty')
+#     list_display = ("user", "first_name", "last_name", "phone_no", "faculty")

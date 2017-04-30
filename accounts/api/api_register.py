@@ -31,8 +31,7 @@ class RegisterSerializer(serializers.Serializer):
             return serializer.data
         except IntegrityError:
             raise serializers.ValidationError("The user already exists.")
-        except (TypeError, ValueError) as e:
-            print(e)
+        except (TypeError, ValueError):
             raise serializers.ValidationError("Enter a valid information.")
 
     def validate_gender(self, value):
@@ -48,6 +47,6 @@ class RegisterView(AbstractAPIView, CreateModelMixin):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            return Response(serializer.validated_data, status=HTTP_200_OK)
+            return Response(status=HTTP_201_CREATED)
         error_message = self.get_error_message(serializer.errors)
-        return Response({"message": error_message}, status=HTTP_400_BAD_REQUEST)
+        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)

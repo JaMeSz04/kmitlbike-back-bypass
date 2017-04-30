@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AnonymousUser
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
+from rest_framework.exceptions import NotFound
 from rest_framework.mixins import RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.status import *
@@ -27,7 +28,7 @@ class ProfileSerializer(serializers.Serializer):
                 else:
                     setattr(instance, attr, value)
             else:
-                raise serializers.ValidationError("Invalid parameters are given.")
+                raise serializers.ValidationError("Invalid parameters.")
         instance.save()
         return instance
 
@@ -41,7 +42,7 @@ class ProfileView(AbstractAPIView, RetrieveModelMixin, UpdateModelMixin):
             user_profile = UserProfile.objects.get(user=request.user)
             return user_profile
         else:
-            raise serializers.ValidationError("User does not exist.")
+            raise NotFound("User does not exist.")
 
     @method_decorator(token_required)
     def get(self, request):
@@ -51,7 +52,7 @@ class ProfileView(AbstractAPIView, RetrieveModelMixin, UpdateModelMixin):
             user_profile_serializer = UserProfileSerializer(instance)
             return Response(user_profile_serializer.data, status=HTTP_200_OK)
         error_message = self.get_error_message(serializer.errors)
-        return Response({"message": error_message}, status=HTTP_400_BAD_REQUEST)
+        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
 
     @method_decorator(token_required)
     def post(self, request):
@@ -62,5 +63,5 @@ class ProfileView(AbstractAPIView, RetrieveModelMixin, UpdateModelMixin):
             user_profile_serializer = UserProfileSerializer(instance)
             return Response(user_profile_serializer.data, status=HTTP_200_OK)
         error_message = self.get_error_message(serializer.errors)
-        return Response({"message": error_message}, status=HTTP_400_BAD_REQUEST)
+        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
 

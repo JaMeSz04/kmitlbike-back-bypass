@@ -25,7 +25,7 @@ class Bike(AbstractModel):
 
     bike_name = models.CharField("Bike name", max_length=64, unique=True, null=False, blank=False)
     bike_model = models.ForeignKey(BikeModel, null=False, blank=False)
-    mac_addr = models.CharField("MAC address", max_length=32, unique=True, null=True, blank=True)
+    mac_address = models.CharField("MAC address", max_length=32, unique=True, null=True, blank=True)
     serial_no = models.CharField("Serial no.", unique=True, max_length=32, null=True, blank=True)
     barcode = models.CharField("Barcode", unique=True, max_length=16, null=True, blank=True)
     is_available = models.BooleanField("Is available", default=True, null=False, blank=False)
@@ -37,11 +37,11 @@ class Bike(AbstractModel):
 
     @property
     def latitude(self):
-        return self.location.split(',')[0]
+        return self.location.split(",")[0]
 
     @property
     def longitude(self):
-        return self.location.split(',')[1]
+        return self.location.split(",")[1]
 
 
 class BikeUsagePlan(AbstractModel):
@@ -51,7 +51,7 @@ class BikeUsagePlan(AbstractModel):
         verbose_name_plural = "Bike Usage Plans"
 
     plan_name = models.CharField("Plan name", max_length=255, null=False, blank=False)
-    period = models.IntegerField("Period (minutes)", null=False, blank=False)
+    period = models.IntegerField("Period (seconds)", null=False, blank=False)
     price = models.IntegerField("Price", null=False, blank=False)
 
     def __str__(self):

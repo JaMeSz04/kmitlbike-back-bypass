@@ -16,9 +16,9 @@ class AbstractAdmin(VersionAdmin):
 
     list_per_page = 50
 
-    readonly_fields = ('created_date', 'updated_date')
+    readonly_fields = ("created_date", "updated_date")
 
-    exclude = ('created_date', 'updated_date')
+    exclude = ("created_date", "updated_date")
 
 
 class AbstractAPIView(GenericAPIView):

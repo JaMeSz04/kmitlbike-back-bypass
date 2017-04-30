@@ -11,7 +11,7 @@ class FeedbackAdmin(AbstractAdmin):
     class Meta:
         model = Feedback
 
-    list_display = ('user', 'like', 'comment')
+    list_display = ("user", "like", "comment")
 
 
 @register(Report, site=admin.site)
@@ -20,4 +20,4 @@ class ReportAdmin(AbstractAdmin):
     class Meta:
         model = Report
 
-    list_display = ('user', 'report_type', 'detail')
+    list_display = ("user", "report_type", "detail")

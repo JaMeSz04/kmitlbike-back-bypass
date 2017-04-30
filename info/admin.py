@@ -11,7 +11,7 @@ class PositionAdmin(AbstractAdmin):
     class Meta:
         model = Position
 
-    list_display = ('name', 'priority')
+    list_display = ("name", "priority")
 
 
 @register(Credit, site=admin.site)
@@ -20,4 +20,4 @@ class CreditAdmin(AbstractAdmin):
     class Meta:
         model = Credit
 
-    list_display = ('name', 'position')
+    list_display = ("name", "position")

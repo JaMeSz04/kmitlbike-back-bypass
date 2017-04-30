@@ -1,12 +1,17 @@
-from django.http import HttpResponse
-from rest_framework.status import *
+from django.utils.decorators import method_decorator
+from rest_framework.mixins import ListModelMixin
 
+from bikes.models import Bike
+from bikes.serializers import BikeSerializer
 from kmitl_bike_django.decorators import token_required
+from kmitl_bike_django.utils import AbstractAPIView
 
 
-@token_required
-def get_available_bikes(request):
-    if request.method == "GET":
-        return HttpResponse(json.dumps(response), status=HTTP_200_OK, content_type="application/json")
-    else:
-        return HttpResponse(status=HTTP_405_METHOD_NOT_ALLOWED, content_type="application/json")
+class GetAvailableBikesView(AbstractAPIView, ListModelMixin):
+
+    serializer_class = BikeSerializer
+    queryset = Bike.objects.filter(is_available=True)
+
+    @method_decorator(token_required)
+    def get(self, request):
+        return self.list(request)

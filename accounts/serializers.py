@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ("username", "first_name", "last_name", "email")
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -17,8 +17,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ('gender', 'phone_no', 'point', 'user')
-        read_only_fields = ('point',)
+        fields = ("gender", "phone_no", "point", "user")
+        read_only_fields = ("point",)
 
     def to_representation(self, instance):
         user_profile = super().to_representation(instance)

@@ -10,7 +10,7 @@ class AppVersionAdmin(AbstractAdmin):
     class Meta:
         model = AppVersion
 
-    list_display = ('version_code', 'version_name', 'platform')
+    list_display = ("version_code", "version_name", "platform")
 
 
 @register(AndroidAppVersion, site=admin.site)

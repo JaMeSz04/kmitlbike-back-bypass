@@ -34,13 +34,13 @@ class KMITLBackend(object):
 
     @staticmethod
     def authenticate(username=None, password=None):
-        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        headers = {"Content-Type": "application/x-www-form-urlencoded"}
         form_data = {
-            'tz_offset': 420,
-            'username': username.lower().strip(),
-            'password': password,
-            'realm': 'ระบบแอคเคาท์ใหม่ (Generation2)',
-            'btnSubmit': 'Sign In'}
+            "tz_offset": 420,
+            "username": username.lower().strip(),
+            "password": password,
+            "realm": "ระบบแอคเคาท์ใหม่ (Generation2)",
+            "btnSubmit": "Sign In"}
         try:
             requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
             response = requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
@@ -62,10 +62,10 @@ class KMITLBackend(object):
 
     @staticmethod
     def is_authenticated(responses):
-        location = responses.headers.get('location')
-        result_check = KMITLBackend.read_url_params(location, 'check')
-        result_p = KMITLBackend.read_url_params(location, 'p')
-        if result_check == 'yes' or result_p == 'session-limit':
+        location = responses.headers.get("location")
+        result_check = KMITLBackend.read_url_params(location, "check")
+        result_p = KMITLBackend.read_url_params(location, "p")
+        if result_check == "yes" or result_p == "session-limit":
             return True
         else:
             return False
@@ -88,17 +88,17 @@ class KMITLBackend(object):
         if not UserExtraProfile.objects.filter(user=user).exists():
             username = username.replace("@kmitl.ac.th", "")
             headers = {
-                'Accept': '*/*',
-                'Cache-Control': 'no-cache',
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Origin': 'https://iam.kmitl.ac.th',
-                'Referer': 'https://iam.kmitl.ac.th/signAgreement.php',
-                'Accept-Language': 'en-US,en;q=0.8,th;q=0.6'}
+                "Accept": "*/*",
+                "Cache-Control": "no-cache",
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Origin": "https://iam.kmitl.ac.th",
+                "Referer": "https://iam.kmitl.ac.th/signAgreement.php",
+                "Accept-Language": "en-US,en;q=0.8,th;q=0.6"}
             form_data = {
-                'manage_login': username.lower().strip(),
-                'manage_pass': password,
-                'PeopleType': KMITLBackend.get_user_type(username),
-                'accept': '+%E0%B8%A2%E0%B8%AD%E0%B8%A1%E0%B8%A3%E0%B8%B1%E0%B8%9A+%28Accept%29+'}
+                "manage_login": username.lower().strip(),
+                "manage_pass": password,
+                "PeopleType": KMITLBackend.get_user_type(username),
+                "accept": "+%E0%B8%A2%E0%B8%AD%E0%B8%A1%E0%B8%A3%E0%B8%B1%E0%B8%9A+%28Accept%29+"}
             try:
                 response = requests.post(KMITLBackend.IAM_KMITL_URL,
                                          form_data,
@@ -107,9 +107,9 @@ class KMITLBackend(object):
                                          allow_redirects=False)
 
                 if response.status_code == 200:
-                    response.encoding = 'utf-8'
+                    response.encoding = "utf-8"
                     soup = BeautifulSoup(response.text, "html.parser")
-                    information = soup.section.find_all('font')
+                    information = soup.section.find_all("font")
                     kmitl_id = information[KMITLBackend.Information.KMITL_ID].string
                     first_name = information[KMITLBackend.Information.FIRST_NAME].string
                     last_name = information[KMITLBackend.Information.LAST_NAME].string
@@ -137,9 +137,9 @@ class KMITLBackend(object):
 
     @staticmethod
     def read_url_params(url, parameter):
-        param = url[url.index('?') + 1:]
-        data_lst = param.split('&')
+        param = url[url.index("?") + 1:]
+        data_lst = param.split("&")
         for data in data_lst:
-            if data[:data.index('=')] == parameter:
-                return data[data.index('=') + 1:]
+            if data[:data.index("=")] == parameter:
+                return data[data.index("=") + 1:]
         return None

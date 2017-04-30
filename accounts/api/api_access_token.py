@@ -31,4 +31,4 @@ class AccessTokenView(AbstractAPIView):
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)
         error_message = self.get_error_message(serializer.errors)
-        return Response({"message": error_message}, status=HTTP_400_BAD_REQUEST)
+        return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
