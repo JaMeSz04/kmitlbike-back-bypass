@@ -25,7 +25,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user = user_profile.pop("user")
         for key in user:
             user_profile[key] = user[key]
-        user_profile["point"] = PointTransaction.objects.filter(user__username=user_profile.get("username")).aggregate(Sum("point"))
+        user = User.objects.get(username=user_profile.get("username"))
+        user_profile["point"] = PointTransaction.get_point(user)
         return user_profile
 
 

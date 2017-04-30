@@ -16,6 +16,8 @@ class ReturnBikeSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["latitude"] = serializers.FloatField()
+        self.fields["longitude"] = serializers.FloatField()
 
     def validate(self, attrs):
         bike = self.context.get("bike")
@@ -25,6 +27,10 @@ class ReturnBikeSerializer(serializers.Serializer):
             raise serializers.ValidationError("You already returned the bike.")
         user_history.return_time = timezone.now()
         user_history.save()
+
+        latitude = attrs.get("latitude")
+        longitude = attrs.get("longitude")
+        bike.location = "%s,%s" % (latitude, longitude)
         bike.is_available = True
         bike.save()
 
@@ -35,7 +41,7 @@ class ReturnBikeSerializer(serializers.Serializer):
         else:
             minutes_overdue = total_duration // 60
             PointTransaction.objects.create(user=user, point=-minutes_overdue,
-                                            transaction_type=PointTransaction.Type.REFUND)
+                                            transaction_type=PointTransaction.Type.PENALTY)
         point_left = PointTransaction.get_point(user)
         return {"point": point_left}
 

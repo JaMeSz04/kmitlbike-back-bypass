@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from accounts.api import api_access_token, api_login, api_logout, api_register, api_profile
-from bikes.api import api_get_available_bikes, api_borrow_bike, api_return_bike
+from bikes.api import api_get_available_bikes, api_borrow_bike, api_return_bike, api_update_bike_location
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),
@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^api/v1/bikes/list', api_get_available_bikes.GetAvailableBikesView.as_view()),
     url(r'^api/v1/bikes/(?P<bike_id>\d+)/borrow', api_borrow_bike.BorrowBikeView.as_view()),
     url(r'^api/v1/bikes/(?P<bike_id>\d+)/return', api_return_bike.ReturnBikeView.as_view()),
-    # url(r'^api/v1/bikes/(?P<bike_id>\d+)/update', update_bike_location),
+    url(r'^api/v1/bikes/(?P<bike_id>\d+)/update', api_update_bike_location.UpdateBikeLocationView.as_view()),
     # url(r'^api/v1/reports/send_report', send_report),
     # url(r'^api/v1/reports/send_feedback', send_feedback),
     # url(r'^api/v1/versions/check_update', check_update),

@@ -14,9 +14,9 @@ class UserHistory(AbstractModel):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     bike = models.ForeignKey(Bike, null=False, on_delete=models.CASCADE)
     selected_plan = models.ForeignKey(BikeUsagePlan, null=False, on_delete=models.CASCADE)
-    borrow_time = models.DateTimeField("Borrow time", auto_now_add=True, null=False)
-    return_time = models.DateTimeField("Return time", auto_now_add=False, auto_now=False, null=True)
-    route_line = models.TextField("Route line", null=False, default="[]")
+    borrow_time = models.DateTimeField("Borrow time", auto_now_add=True, null=False, blank=False)
+    return_time = models.DateTimeField("Return time", auto_now_add=False, auto_now=False, null=True, blank=True)
+    route_line = models.TextField("Route line", null=False, blank=False, default="[]")
 
     def __str__(self):
         return self.user.username
