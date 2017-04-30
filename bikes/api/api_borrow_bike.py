@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.status import *
 
+from accounts.models import PointTransaction
 from bikes.models import Bike, BikeUsagePlan
 from bikes.serializers import BikeSerializer
 from histories.models import UserHistory
@@ -33,10 +34,15 @@ class BorrowBikeSerializer(serializers.Serializer):
         try:
             if UserHistory.objects.filter(user=user, return_time=None).exists():
                 raise serializers.ValidationError("You have not returned the previous bike yet.")
-            UserHistory.objects.create(user=user, bike=bike, selected_plan=selected_plan)
-            bike.save()
-            bike_serializer = BikeSerializer(bike)
-            return bike_serializer.data
+            if PointTransaction.get_point(user) - selected_plan.price >= 0:
+                UserHistory.objects.create(user=user, bike=bike, selected_plan=selected_plan)
+                PointTransaction.objects.create(user=user, point=-selected_plan.price,
+                                                transaction_type=PointTransaction.Type.DEPOSIT)
+                bike.save()
+                bike_serializer = BikeSerializer(bike)
+                return bike_serializer.data
+            else:
+                raise serializers.ValidationError("Insufficient points to borrow.")
         except IntegrityError:
             raise serializers.ValidationError("Invalid parameters.")
 
@@ -59,7 +65,7 @@ class BorrowBikeView(AbstractAPIView):
             "bike": self.get_object(self.kwargs["bike_id"])}
 
     @method_decorator(token_required)
-    def post(self, request, bike_id):
+    def post(self, request, bike_id=None):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)

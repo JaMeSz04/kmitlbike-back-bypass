@@ -5,8 +5,9 @@ from rest_framework.mixins import CreateModelMixin
 from rest_framework.response import Response
 from rest_framework.status import *
 
-from accounts.models import UserProfile
+from accounts.models import UserProfile, PointTransaction
 from accounts.serializers import UserProfileSerializer
+from kmitl_bike_django.settings import DEFAULT_POINTS
 from kmitl_bike_django.utils import AbstractAPIView
 
 
@@ -26,7 +27,9 @@ class RegisterSerializer(serializers.Serializer):
             gender = attrs.pop("gender")
             phone_no = attrs.pop("phone_no")
             user = User.objects.create(**attrs)
-            user_profile, created = UserProfile.objects.get_or_create(user=user, gender=gender, phone_no=phone_no)
+            user_profile = UserProfile.objects.create(user=user, gender=gender, phone_no=phone_no)
+            PointTransaction.objects.create(user=user, point=DEFAULT_POINTS,
+                                            transaction_type=PointTransaction.Type.INITIAL)
             serializer = UserProfileSerializer(user_profile)
             return serializer.data
         except IntegrityError:

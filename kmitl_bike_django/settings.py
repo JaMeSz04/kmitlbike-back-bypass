@@ -105,6 +105,9 @@ GOOGLE_MAP_API_KEY = "AIzaSyBJ9F6VpRRPLJNi1i2zfynK_xNBx8eCIbc"
 GOOGLE_DEFAULT_LOCATION = "13.7297551064,100.775324106"
 
 
+DEFAULT_POINTS = 100
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

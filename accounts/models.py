@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Sum
 
 from bikes.models import Bike, BikeUsagePlan
 from kmitl_bike_django.utils import AbstractModel
@@ -25,7 +26,6 @@ class UserProfile(AbstractModel):
     user = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
     gender = models.IntegerField("Gender", null=False, blank=False, choices=_gender)
     phone_no = models.CharField("Phone no.", max_length=32, null=False, blank=False)
-    point = models.IntegerField("Point", null=False, blank=False, default=100)
 
     def __str__(self):
         return self.user.username
@@ -53,3 +53,36 @@ class UserExtraProfile(AbstractModel):
 
     def __str__(self):
         return self.user.username
+
+
+class PointTransaction(AbstractModel):
+
+    class Meta:
+        verbose_name = "Point Transaction"
+        verbose_name_plural = "Point Transactions"
+
+    class Type(object):
+        INITIAL = 1
+        DEPOSIT = 2
+        REFUND = 3
+        PENALTY = 4
+        SPECIAL = 5
+
+    _type = (
+        (Type.INITIAL, "Initial"),
+        (Type.DEPOSIT, "Deposit"),
+        (Type.REFUND, "Refund"),
+        (Type.PENALTY, "Penalty"),
+        (Type.SPECIAL, "Special")
+    )
+
+    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
+    point = models.IntegerField("Point", null=False, blank=False)
+    transaction_type = models.IntegerField("Transaction type", null=False, blank=False, choices=_type)
+
+    @staticmethod
+    def get_point(user):
+        return PointTransaction.objects.filter(user=user).aggregate(Sum("point"))["point__sum"]
+
+    def __str__(self):
+        return str(self.id)
