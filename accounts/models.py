@@ -38,8 +38,8 @@ class UserProfile(AbstractModel):
 class UserExtraProfile(AbstractModel):
 
     class Meta:
-        verbose_name = "User Extra Profile"
-        verbose_name_plural = "Users\' Extra Profiles"
+        verbose_name = "User Profile (Extra)"
+        verbose_name_plural = "Users\' Profiles (Extra)"
 
     user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
     kmitl_id = models.CharField("KMITL ID", max_length=32, null=False, blank=True)
@@ -79,6 +79,7 @@ class PointTransaction(AbstractModel):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     point = models.IntegerField("Point", null=False, blank=False)
     transaction_type = models.IntegerField("Transaction type", null=False, blank=False, choices=_type)
+    comment = models.CharField("Comment", max_length=255, null=False, blank=True)
 
     @staticmethod
     def get_point(user):

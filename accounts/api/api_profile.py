@@ -68,3 +68,7 @@ class ProfileView(AbstractAPIView, RetrieveModelMixin, UpdateModelMixin):
             error_message = self.get_error_message(serializer.errors)
             return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
         raise AuthenticationFailed()
+
+
+def as_view():
+    return ProfileView.as_view()

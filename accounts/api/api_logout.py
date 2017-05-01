@@ -13,3 +13,6 @@ class LogoutView(AbstractAPIView):
         request.token.delete()
         return Response(status=HTTP_200_OK)
 
+
+def as_view():
+    return LogoutView.as_view()

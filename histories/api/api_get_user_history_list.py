@@ -18,3 +18,7 @@ class GetUserHistoryListView(AbstractAPIView, ListModelMixin):
             self.queryset = UserHistory.objects.filter(user_id=user_id, return_time__isnull=False)
             return self.list(request)
         raise AuthenticationFailed()
+
+
+def as_view():
+    return GetUserHistoryListView.as_view()

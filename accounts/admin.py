@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import register
 
-from accounts.models import UserProfile, PointTransaction
+from accounts.models import UserProfile, PointTransaction, UserExtraProfile
 from kmitl_bike_django.utils import AbstractAdmin
 
 
@@ -17,13 +17,13 @@ class UserProfileAdmin(AbstractAdmin):
         return PointTransaction.get_point(instance.user)
 
 
-# @register(UserExtraProfile, site=admin.site)
-# class UserExtraProfileAdmin(AbstractAdmin):
-#
-#     class Meta:
-#         model = UserExtraProfile
-#
-#     list_display = ("user", "first_name", "last_name", "phone_no", "faculty")
+@register(UserExtraProfile, site=admin.site)
+class UserExtraProfileAdmin(AbstractAdmin):
+
+    class Meta:
+        model = UserExtraProfile
+
+    list_display = ("user", "first_name", "last_name", "phone_no", "faculty")
 
 
 @register(PointTransaction, site=admin.site)

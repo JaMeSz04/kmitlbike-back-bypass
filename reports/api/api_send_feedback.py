@@ -23,3 +23,6 @@ class SendFeedbackView(AbstractAPIView, CreateModelMixin):
         error_message = self.get_error_message(serializer.errors)
         return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
 
+
+def as_view():
+    return SendFeedbackView.as_view()

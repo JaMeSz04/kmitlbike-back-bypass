@@ -20,3 +20,7 @@ class GetUserSessionView(AbstractAPIView):
         data = self.get_serializer(user_history).data
         data["resume"] = True
         return Response(data, status=HTTP_200_OK)
+
+
+def as_view():
+    return GetUserSessionView.as_view()

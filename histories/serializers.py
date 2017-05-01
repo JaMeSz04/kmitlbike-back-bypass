@@ -10,6 +10,7 @@ class LocationSerializer(serializers.Serializer):
 
     latitude = serializers.FloatField()
     longitude = serializers.FloatField()
+    time = serializers.FloatField()
 
 
 class RouteLineSerializer(serializers.ListSerializer):

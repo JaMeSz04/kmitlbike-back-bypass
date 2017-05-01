@@ -17,3 +17,5 @@ class GetReportTypeView(AbstractAPIView):
         return Response(data, status=HTTP_200_OK)
 
 
+def as_view():
+    return GetReportTypeView.as_view()

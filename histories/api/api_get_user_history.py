@@ -23,3 +23,7 @@ class GetUserHistoryView(AbstractAPIView):
             except UserHistory.DoesNotExist:
                 raise NotFound("User history does not exist.")
         raise AuthenticationFailed()
+
+
+def as_view():
+    return GetUserHistoryView.as_view()

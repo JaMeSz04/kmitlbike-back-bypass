@@ -15,3 +15,7 @@ class GetAvailableBikesView(AbstractAPIView, ListModelMixin):
     @method_decorator(token_required)
     def get(self, request):
         return self.list(request)
+
+
+def as_view():
+    return GetAvailableBikesView.as_view()

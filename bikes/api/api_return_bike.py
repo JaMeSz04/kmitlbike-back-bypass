@@ -1,3 +1,5 @@
+import json
+
 from django.utils import timezone
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
@@ -8,6 +10,7 @@ from rest_framework.status import *
 from accounts.models import PointTransaction
 from bikes.models import Bike
 from histories.models import UserHistory
+from histories.serializers import RouteLineSerializer
 from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
 
@@ -18,6 +21,7 @@ class ReturnBikeSerializer(serializers.Serializer):
         super().__init__(*args, **kwargs)
         self.fields["latitude"] = serializers.FloatField()
         self.fields["longitude"] = serializers.FloatField()
+        self.fields["route_line"] = RouteLineSerializer()
 
     def validate(self, attrs):
         bike = self.context.get("bike")
@@ -25,6 +29,10 @@ class ReturnBikeSerializer(serializers.Serializer):
         user_history = UserHistory.objects.filter(user=user, bike=bike, return_time__isnull=True).last()
         if user_history is None:
             raise serializers.ValidationError("You already returned the bike.")
+        route_line = attrs.get("route_line")
+        route_line_history = json.loads(user_history.route_line)
+        route_line_history += route_line
+        user_history.route_line = json.dumps(route_line_history)
         user_history.return_time = timezone.now()
         user_history.save()
 
@@ -70,3 +78,7 @@ class ReturnBikeView(AbstractAPIView):
             return Response(serializer.validated_data, status=HTTP_200_OK)
         error_message = self.get_error_message(serializer.errors)
         return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
+
+
+def as_view():
+    return ReturnBikeView.as_view()

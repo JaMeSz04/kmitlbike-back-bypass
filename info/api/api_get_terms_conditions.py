@@ -10,3 +10,7 @@ class GetTermsConditionsView(AbstractAPIView):
     def get(self, request):
         template = loader.get_template("terms_conditions.html")
         return HttpResponse(template.render(request), status=HTTP_200_OK)
+
+
+def as_view():
+    return GetTermsConditionsView.as_view()

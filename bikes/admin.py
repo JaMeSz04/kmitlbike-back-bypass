@@ -12,7 +12,13 @@ class BikeModelAdmin(AbstractAdmin):
     class Meta:
         model = BikeModel
 
-    list_display = ("model_name",)
+    list_display = ("model_name", "image_thumbnail")
+
+    def image_thumbnail(self, instance):
+        return instance.get_thumbnail()
+
+    image_thumbnail.short_description = 'Thumbnail'
+    image_thumbnail.allow_tags = True
 
 
 @register(Bike, site=admin.site)

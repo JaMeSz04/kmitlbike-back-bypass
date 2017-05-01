@@ -32,10 +32,10 @@ class Report(AbstractModel):
         OTHER = 4
 
     _type = (
-        (Type.APP_PROBLEM, "ปัญหาการใช้งานแอพ"),
-        (Type.BIKE_PROBLEM, "ปัญหาการใช้งานจักรยาน"),
-        (Type.SUGGESTION, "ข้อเสนอแนะ"),
-        (Type.OTHER, "อื่น ๆ"),
+        (Type.APP_PROBLEM, "App Usage Problem"),
+        (Type.BIKE_PROBLEM, "Bike Usage Problem"),
+        (Type.SUGGESTION, "Suggestions"),
+        (Type.OTHER, "Other"),
     )
 
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
