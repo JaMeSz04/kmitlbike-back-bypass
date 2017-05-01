@@ -4,7 +4,7 @@ from django.contrib import admin
 from accounts.api import api_access_token, api_login, api_logout, api_register, api_profile
 from bikes.api import api_get_available_bikes, api_borrow_bike, api_return_bike, api_update_bike_location
 from histories.api import api_get_user_session, api_get_user_history_list, api_get_user_history
-from reports.api import api_send_report, api_send_feedback
+from reports.api import api_send_report, api_send_feedback, api_get_report_type
 from versions.api import api_check_update
 from info.api import api_get_terms_conditions, api_get_credits
 
@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^api/v1/users/(?P<user_id>\d+)/session', api_get_user_session.GetUserSessionView.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/histories/list', api_get_user_history_list.GetUserHistoryListView.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/histories/(?P<hist_id>\d+)', api_get_user_history.GetUserHistoryView.as_view()),
-    # url(r'^api/v1/reports/type', send_report),
+    url(r'^api/v1/reports/get_type', api_get_report_type.GetReportTypeView.as_view()),
     url(r'^api/v1/reports/send_report', api_send_report.SendReportView.as_view()),
     url(r'^api/v1/reports/send_feedback', api_send_feedback.SendFeedbackView.as_view()),
     url(r'^api/v1/versions/check', api_check_update.CheckUpdateView.as_view()),
