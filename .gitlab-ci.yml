@@ -1,0 +1,9 @@
+build:
+   image: docker:latest
+   services:
+   - docker:dind
+   stage: build
+   script:
+     - docker login -u sasawatc -p mooham555
+     - docker build -t sasawatc/kmitl_bike:latest .
+     - docker push sasawatc/kmitl_bike:latest
