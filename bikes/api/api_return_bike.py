@@ -24,9 +24,8 @@ class ReturnBikeSerializer(serializers.Serializer):
         self.fields["route_line"] = RouteLineSerializer()
 
     def validate(self, attrs):
-        bike = self.context.get("bike")
         user = self.context.get("request").user
-        user_history = UserHistory.objects.filter(user=user, bike=bike, return_time__isnull=True).last()
+        user_history = UserHistory.objects.filter(user=user, return_time__isnull=True).last()
         if user_history is None:
             raise serializers.ValidationError("You already returned the bike.")
         route_line = attrs.get("route_line")
@@ -38,9 +37,10 @@ class ReturnBikeSerializer(serializers.Serializer):
 
         latitude = attrs.get("latitude")
         longitude = attrs.get("longitude")
-        bike.location = "%s,%s" % (latitude, longitude)
-        bike.is_available = True
-        bike.save()
+
+        user_history.bike.location = "%s,%s" % (latitude, longitude)
+        user_history.bike.is_available = True
+        user_history.bike.save()
 
         total_duration = (user_history.return_time - user_history.borrow_time).total_seconds()
         if total_duration <= user_history.selected_plan.period:
@@ -58,21 +58,8 @@ class ReturnBikeView(AbstractAPIView):
 
     serializer_class = ReturnBikeSerializer
 
-    def get_object(self, bike_id):
-        try:
-            return Bike.objects.get(id=bike_id)
-        except Bike.DoesNotExist:
-            raise NotFound("Bike does not exist.")
-
-    def get_serializer_context(self):
-        return {
-            "request": self.request,
-            "format": self.format_kwarg,
-            "view": self,
-            "bike": self.get_object(self.kwargs["bike_id"])}
-
     @method_decorator(token_required)
-    def post(self, request, bike_id=None):
+    def post(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)

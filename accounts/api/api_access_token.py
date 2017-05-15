@@ -5,6 +5,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.status import *
 
+from accounts.models import UserProfile
+from accounts.serializers import UserProfileSerializer
 from kmitl_bike_django.utils import AbstractAPIView
 
 
@@ -21,7 +23,15 @@ class AccessTokenSerializer(serializers.Serializer):
             user = token.user
             user.last_login = timezone.now()
             user.save()
-            return {"token": token.key}
+
+            user_profile = UserProfile.objects.get(user=user)
+            user.last_login = timezone.now()
+            user.save()
+            serializer = UserProfileSerializer(user_profile)
+            data = serializer.data
+            data["token"] = str(token)
+
+            return data
         except IntegrityError:
             raise serializers.ValidationError("The token is already expired.")
 
