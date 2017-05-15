@@ -27,7 +27,7 @@ class BikeAdmin(AbstractAdmin):
     class Meta:
         model = Bike
 
-    list_display = ("bike_name", "bike_model", "is_available", "passcode")
+    list_display = ("bike_name", "bike_model", "is_available")
 
     form = BikeForm
 

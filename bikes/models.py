@@ -33,7 +33,6 @@ class Bike(AbstractModel):
     mac_address = models.CharField("MAC address", max_length=32, unique=True, null=True, blank=True)
     serial_no = models.CharField("Serial no.", unique=True, max_length=32, null=True, blank=True)
     is_available = models.BooleanField("Is available", default=True, null=False, blank=False)
-    passcode = models.CharField("Passcode", max_length=32, null=False, blank=True)
     location = PlainLocationField(zoom=15, null=False, blank=False, default=GOOGLE_DEFAULT_LOCATION)
 
     def __str__(self):

@@ -30,6 +30,7 @@ class LoginSerializer(serializers.Serializer):
                     serializer = UserProfileSerializer(user_profile)
                     data = serializer.data
                     data["result"] = result
+                    data["token"] = str(token)
                     return data
                 else:
                     raise serializers.ValidationError("This account has been suspended. Please contact our staff for more detail.")
