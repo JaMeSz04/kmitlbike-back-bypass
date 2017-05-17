@@ -30,7 +30,6 @@ class AccessTokenSerializer(serializers.Serializer):
             serializer = UserProfileSerializer(user_profile)
             data = serializer.data
             data["token"] = str(token)
-
             return data
         except IntegrityError:
             raise serializers.ValidationError("The token is already expired.")

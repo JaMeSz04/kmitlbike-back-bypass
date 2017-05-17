@@ -1,3 +1,5 @@
+import json
+
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -42,6 +44,8 @@ class UserHistorySerializer(serializers.ModelSerializer):
         distance = calculate_distance(instance.route_line)
         user_history["duration"] = duration
         user_history["distance"] = distance
+        route_line = user_history.pop("route_line")
+        user_history["route_line"] = json.loads(route_line)
         return user_history
 
 

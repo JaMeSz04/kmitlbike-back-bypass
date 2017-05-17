@@ -50,7 +50,7 @@ class RegisterView(AbstractAPIView, CreateModelMixin):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            return Response(status=HTTP_201_CREATED)
+            return Response({"result": True}, status=HTTP_201_CREATED)
         error_message = self.get_error_message(serializer.errors)
         return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
 

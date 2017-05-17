@@ -11,7 +11,7 @@ class LogoutView(AbstractAPIView):
     @method_decorator(token_required)
     def post(self, request):
         request.token.delete()
-        return Response(status=HTTP_200_OK)
+        return Response({"result": True}, status=HTTP_200_OK)
 
 
 def as_view():
