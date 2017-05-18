@@ -3,11 +3,9 @@ import json
 from django.utils import timezone
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
-from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.status import *
 
-from bikes.models import Bike
 from histories.models import UserHistory
 from histories.serializers import RouteLineSerializer
 from kmitl_bike_django.decorators import token_required
@@ -20,7 +18,7 @@ class UpdateBikeLocationSerializer(serializers.Serializer):
         super().__init__(*args, **kwargs)
         self.fields["latitude"] = serializers.FloatField()
         self.fields["longitude"] = serializers.FloatField()
-        self.fields["route_line"] = RouteLineSerializer()
+        self.fields["route_line"] = RouteLineSerializer(required=False)
 
     def validate(self, attrs):
         user = self.context.get("request").user
@@ -34,7 +32,10 @@ class UpdateBikeLocationSerializer(serializers.Serializer):
         user_history.bike.location = "%s,%s" % (latitude, longitude)
         user_history.bike.save()
 
-        route_line = attrs.get("route_line")
+        if len(attrs.get("route_line")) > 0:
+            route_line = attrs.get("route_line")
+        else:
+            route_line = [{"latitude": latitude, "longitude": longitude}]
         route_line_history = json.loads(user_history.route_line)
         route_line_history += route_line
         user_history.route_line = json.dumps(route_line_history)

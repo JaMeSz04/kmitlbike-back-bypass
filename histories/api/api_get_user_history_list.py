@@ -15,7 +15,7 @@ class GetUserHistoryListView(AbstractAPIView, ListModelMixin):
     @method_decorator(token_required)
     def get(self, request, user_id):
         if int(user_id) is request.user.id:
-            self.queryset = UserHistory.objects.filter(user_id=user_id, return_time__isnull=False)
+            self.queryset = UserHistory.objects.filter(user_id=user_id, return_time__isnull=False).order_by("-borrow_time")
             return self.list(request)
         raise AuthenticationFailed()
 

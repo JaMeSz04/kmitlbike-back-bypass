@@ -2,7 +2,6 @@
 import requests
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
-from django.core.signing import Signer
 from django.db import IntegrityError
 from rest_framework.authtoken.models import Token
 
@@ -30,8 +29,6 @@ class KMITLBackend(object):
     NAC_KMITL_URL = "https://nac.kmitl.ac.th/dana-na/auth/url_default/login.cgi"
 
     IAM_KMITL_URL = "https://iam.kmitl.ac.th/statusProfile.php"
-
-    signer = Signer()
 
     @staticmethod
     def authenticate(username=None, password=None):
@@ -114,7 +111,7 @@ class KMITLBackend(object):
                     kmitl_id = information[KMITLBackend.Information.KMITL_ID].string
                     first_name = information[KMITLBackend.Information.FIRST_NAME].string
                     last_name = information[KMITLBackend.Information.LAST_NAME].string
-                    id_card = KMITLBackend.signer.sign(information[KMITLBackend.Information.ID_CARD].string.encode())
+                    id_card = information[KMITLBackend.Information.ID_CARD].string
                     phone_no = information[KMITLBackend.Information.PHONE_NO].string
                     faculty = information[KMITLBackend.Information.FACULTY].string
                     email = information[KMITLBackend.Information.EMAIL].string
