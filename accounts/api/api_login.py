@@ -12,7 +12,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class LoginSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(LoginSerializer, self).__init__(*args, **kwargs)
         self.fields["username"] = serializers.CharField()
         self.fields["password"] = serializers.CharField()
 

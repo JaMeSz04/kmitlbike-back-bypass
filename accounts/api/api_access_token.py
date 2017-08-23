@@ -13,7 +13,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class AccessTokenSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(AccessTokenSerializer, self).__init__(*args, **kwargs)
         self.fields["token"] = serializers.CharField()
 
     def validate(self, attrs):
@@ -30,6 +30,7 @@ class AccessTokenSerializer(serializers.Serializer):
             serializer = UserProfileSerializer(user_profile)
             data = serializer.data
             data["token"] = str(token)
+
             return data
         except IntegrityError:
             raise serializers.ValidationError("The token is already expired.")

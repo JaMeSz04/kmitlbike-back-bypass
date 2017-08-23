@@ -28,7 +28,7 @@ class UserHistorySerializer(serializers.ModelSerializer):
         fields = ("id", "bike", "selected_plan", "route_line")
 
     def to_representation(self, instance):
-        user_history = super().to_representation(instance)
+        user_history = super(UserHistorySerializer, self).to_representation(instance)
         user_history["bike"].pop("latitude")
         user_history["bike"].pop("longitude")
         user_history["timestamps"] = {}
@@ -51,6 +51,6 @@ class UserHistorySerializer(serializers.ModelSerializer):
 class UserHistoryListSerializer(UserHistorySerializer):
 
     def to_representation(self, instance):
-        user_history = super().to_representation(instance)
+        user_history = super(UserHistoryListSerializer, self).to_representation(instance)
         user_history.pop("route_line")
         return user_history

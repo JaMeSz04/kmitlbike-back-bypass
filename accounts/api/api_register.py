@@ -14,7 +14,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class RegisterSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(RegisterSerializer, self).__init__(*args, **kwargs)
         self.fields["username"] = serializers.CharField()
         self.fields["first_name"] = serializers.CharField(min_length=1, max_length=30)
         self.fields["last_name"] = serializers.CharField(min_length=1, max_length=30)
@@ -31,6 +31,7 @@ class RegisterSerializer(serializers.Serializer):
             PointTransaction.objects.create(user=user, point=DEFAULT_POINTS,
                                             transaction_type=PointTransaction.Type.INITIAL)
             serializer = UserProfileSerializer(user_profile)
+
             return serializer.data
         except IntegrityError:
             raise serializers.ValidationError("The user already exists.")

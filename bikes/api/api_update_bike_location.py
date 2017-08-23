@@ -15,7 +15,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class UpdateBikeLocationSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(UpdateBikeLocationSerializer, self).__init__(*args, **kwargs)
         self.fields["latitude"] = serializers.FloatField()
         self.fields["longitude"] = serializers.FloatField()
         self.fields["route_line"] = RouteLineSerializer(required=False)

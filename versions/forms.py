@@ -11,7 +11,7 @@ class AndroidAppVersionForm(forms.ModelForm):
         fields = ("platform", "version_code", "version_name", "url")
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(AndroidAppVersionForm, self).__init__(*args, **kwargs)
         self.fields["platform"].initial = AppVersion.Platform.ANDROID
         self.fields["url"].initial = ANDROID_APP_URL
 
@@ -23,6 +23,6 @@ class IosAppVersionForm(forms.ModelForm):
         fields = ("platform", "version_code", "version_name", "url")
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(IosAppVersionForm, self).__init__(*args, **kwargs)
         self.fields["platform"].initial = AppVersion.Platform.IOS
         self.fields["url"].initial = IOS_APP_URL

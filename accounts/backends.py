@@ -32,29 +32,56 @@ class KMITLBackend(object):
 
     @staticmethod
     def authenticate(username=None, password=None):
-        headers = {"Content-Type": "application/x-www-form-urlencoded"}
+        username = username.replace("@kmitl.ac.th", "")
+        headers = {
+            "Accept": "*/*",
+            "Cache-Control": "no-cache",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Origin": "https://iam.kmitl.ac.th",
+            "Referer": "https://iam.kmitl.ac.th/signAgreement.php",
+            "Accept-Language": "en-US,en;q=0.8,th;q=0.6"}
         form_data = {
-            "tz_offset": 420,
-            "username": username.lower().strip(),
-            "password": password,
-            "realm": "ระบบแอคเคาท์ใหม่ (Generation2)",
-            "btnSubmit": "Sign In"}
+            "manage_login": username.lower().strip(),
+            "manage_pass": password,
+            "PeopleType": KMITLBackend.get_user_type(username),
+            "accept": "+ยอมรับ+(Accept)+"}
         try:
-            requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
-            response = requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
-            if response.status_code == 302:
-                if KMITLBackend.is_authenticated(response):
-                    user = KMITLBackend.get_user(username)
-                    if user:
-                        KMITLBackend.get_user_information(username, password, user)
-                        token, _ = Token.objects.get_or_create(user=user)
-                        return KMITLBackend.Status.ALREADY_EXISTS, token
-                    else:
-                        return KMITLBackend.Status.FIRST_TIME, None
-                else:
+            response = requests.post(KMITLBackend.IAM_KMITL_URL,
+                                     form_data,
+                                     headers=headers,
+                                     verify=False,
+                                     allow_redirects=False)
+
+            if response.status_code == 200:
+                response.encoding = "utf-8"
+                soup = BeautifulSoup(response.text, "html.parser")
+                invalid = soup.section.find_all("span", class_="fa-warning")
+                if invalid:
                     return KMITLBackend.Status.INVALID, None
+                user = KMITLBackend.get_user(username)
+                if user:
+                    KMITLBackend.get_user_information(username, password, user)
+                    token, _ = Token.objects.get_or_create(user=user)
+                    return KMITLBackend.Status.ALREADY_EXISTS, token
+                else:
+                    return KMITLBackend.Status.FIRST_TIME, None
             else:
                 return KMITLBackend.Status.CONNECTION_FAIL, None
+                # requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
+                # response = requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
+                # if response.status_code == 302:
+                #     if KMITLBackend.is_authenticated(response):
+                #         user = KMITLBackend.get_user(username)
+                #         if user:
+                #             KMITLBackend.get_user_information(username, password, user)
+                #             token, _ = Token.objects.get_or_create(user=user)
+                #             return KMITLBackend.Status.ALREADY_EXISTS, token
+                #         else:
+                #             return KMITLBackend.Status.FIRST_TIME, None
+                #     else:
+                #         return KMITLBackend.Status.INVALID, None
+                # else:
+                #     return KMITLBackend.Status.CONNECTION_FAIL, None
         except requests.HTTPError:
             return KMITLBackend.Status.CONNECTION_FAIL, None
 
@@ -77,9 +104,13 @@ class KMITLBackend(object):
 
     @staticmethod
     def get_user_type(username=None):
-        # TODO: check user type
-        # return "staff"
-        return "student"
+        digit = 0
+        for character in username:
+            if character.isdigit():
+                digit += 1
+        if digit > 6:
+            return "student"
+        return "staff"
 
     @staticmethod
     def get_user_information(username=None, password=None, user=None):

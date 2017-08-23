@@ -21,7 +21,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ("gender", "phone_no", "user")
 
     def to_representation(self, instance):
-        user_profile = super().to_representation(instance)
+        user_profile = super(UserProfileSerializer, self).to_representation(instance)
         user = user_profile.pop("user")
         for key in user:
             user_profile[key] = user[key]

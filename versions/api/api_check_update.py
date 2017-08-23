@@ -11,7 +11,7 @@ from versions.serializers import AppVersionSerializer
 class CheckUpdateSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(CheckUpdateSerializer, self).__init__(*args, **kwargs)
         self.fields["platform"] = serializers.CharField()
         self.fields["version_code"] = serializers.CharField()
 

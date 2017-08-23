@@ -10,7 +10,7 @@ class CreditSerializer(serializers.ModelSerializer):
         fields = ("name", "position")
 
     def to_representation(self, instance):
-        credit = super().to_representation(instance)
+        credit = super(CreditSerializer, self).to_representation(instance)
         credit.pop("position")
         credit["position"] = instance.position.name
         return credit

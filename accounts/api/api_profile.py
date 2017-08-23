@@ -15,7 +15,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class ProfileSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(ProfileSerializer, self).__init__(*args, **kwargs)
         self.fields["email"] = serializers.EmailField(required=False)
         self.fields["gender"] = serializers.IntegerField(required=False)
         self.fields["phone_no"] = serializers.CharField(required=False, min_length=10, max_length=12)

@@ -1,13 +1,14 @@
 from django.db import IntegrityError
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.status import *
 
 from accounts.models import PointTransaction
-from bikes.models import BikeUsagePlan, Bike
+from bikes.models import Bike, BikeUsagePlan
 from bikes.serializers import BikeSerializer
-from bikes.utils import RSAEncryption, is_mac_address
+from bikes.utils import Sha256Hash
 from histories.models import UserHistory
 from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
@@ -15,33 +16,27 @@ from kmitl_bike_django.utils import AbstractAPIView
 
 class BorrowBikeSerializer(serializers.Serializer):
 
+    BORROW_COMMAND = "BORROW,<<MAC_ADDRESS>>,<<NONCE>>,<<PASSWORD>>"
+
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields["command"] = serializers.CharField()
+        super(BorrowBikeSerializer, self).__init__(*args, **kwargs)
+        self.fields["nonce"] = serializers.IntegerField()
         self.fields["selected_plan"] = serializers.IntegerField()
 
     def validate(self, attrs):
-
-        command = attrs.get("command")[1:-1].split(",")
-
-        if len(command) != 3:
-            raise serializers.ValidationError("Invalid command.")
-        if command[0] != "BORROW":
-            raise serializers.ValidationError("Incorrect command.")
-        if not is_mac_address(command[1]):
-            raise serializers.ValidationError("Invalid MAC address.")
-
-        encryption_suite = RSAEncryption()
-        message = encryption_suite.encrypt(command)
-        mac_address = command[1]
-        try:
-            bike = Bike.objects.get(mac_address=mac_address)
-        except Bike.DoesNotExist:
-            raise serializers.ValidationError("Bike does not exist.")
+        bike = self.context.get("bike")
         if not bike.is_available:
             raise serializers.ValidationError("The bike is already borrowed by another user.")
         bike.is_available = False
 
+        nonce = attrs.get("nonce")
+        bike_mac_address = bike.mac_address
+        bike_key = bike.bike_key
+        message = BorrowBikeSerializer.BORROW_COMMAND
+        message = message.replace("<<MAC_ADDRESS>>", bike_mac_address)\
+            .replace("<<NONCE>>", str(nonce))\
+            .replace("<<PASSWORD>>", bike_key)
+        hashed_message = Sha256Hash.hash(message)
         user = self.context.get("request").user
         selected_plan = attrs.get("selected_plan")
         try:
@@ -58,7 +53,8 @@ class BorrowBikeSerializer(serializers.Serializer):
                 bike.save()
                 bike_serializer = BikeSerializer(bike)
                 return {"bike": bike_serializer.data,
-                        "message": message}
+                        "point": PointTransaction.get_point(user),
+                        "message": hashed_message}
             else:
                 raise serializers.ValidationError("Insufficient points to borrow.")
         except IntegrityError:
@@ -69,8 +65,21 @@ class BorrowBikeView(AbstractAPIView):
 
     serializer_class = BorrowBikeSerializer
 
+    def get_object(self, bike_id):
+        try:
+            return Bike.objects.get(id=bike_id)
+        except Bike.DoesNotExist:
+            raise NotFound("Bike does not exist.")
+
+    def get_serializer_context(self):
+        return {
+            "request": self.request,
+            "format": self.format_kwarg,
+            "view": self,
+            "bike": self.get_object(self.kwargs["bike_id"])}
+
     @method_decorator(token_required)
-    def post(self, request):
+    def post(self, request, bike_id=None):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)

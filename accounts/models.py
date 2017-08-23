@@ -34,6 +34,10 @@ class UserProfile(AbstractModel):
     def get_gender():
         return UserProfile._gender
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return "user__username", "user__first_name", "user__last_name"
+
 
 class UserExtraProfile(AbstractModel):
 
@@ -53,6 +57,10 @@ class UserExtraProfile(AbstractModel):
 
     def __str__(self):
         return self.user.username
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return "user__username", "user__first_name", "user__last_name"
 
 
 class PointTransaction(AbstractModel):
@@ -87,3 +95,7 @@ class PointTransaction(AbstractModel):
 
     def __str__(self):
         return str(self.id)
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return "user__username", "user__first_name", "user__last_name"

@@ -7,11 +7,11 @@ class BikeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bike
-        fields = ("id", "bike_name", "bike_model", "mac_address", "latitude", "longitude")
+        fields = ("id", "bike_name", "bike_model", "barcode", "mac_address", "latitude", "longitude")
 
 
 class BikeUsagePlanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BikeUsagePlan
-        fields = ("plan_name", "price")
+        fields = ("id", "plan_name", "price")

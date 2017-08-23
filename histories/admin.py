@@ -17,4 +17,4 @@ class UserHistoryAdmin(AbstractAdmin):
     def overdue(self, instance):
         if not instance.return_time:
             return (timezone.now() - instance.borrow_time).total_seconds() > instance.selected_plan.period
-        return "Returned"
+        return (instance.return_time - instance.borrow_time).total_seconds() > instance.selected_plan.period
