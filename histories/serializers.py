@@ -3,7 +3,8 @@ import json
 from django.utils import timezone
 from rest_framework import serializers
 
-from bikes.serializers import BikeSerializer
+from bikes.models import BikeUsagePlan
+from bikes.serializers import BikeSerializer, BikeUsagePlanSerializer
 from histories.models import UserHistory
 from histories.utils import calculate_distance, calculate_duration
 
@@ -31,6 +32,10 @@ class UserHistorySerializer(serializers.ModelSerializer):
         user_history = super(UserHistorySerializer, self).to_representation(instance)
         user_history["bike"].pop("latitude")
         user_history["bike"].pop("longitude")
+        selected_plan_id = user_history.pop("selected_plan")
+        selected_plan = BikeUsagePlan.objects.get(id=selected_plan_id)
+        plan_serializer = BikeUsagePlanSerializer(selected_plan)
+        user_history["selected_plan"] = plan_serializer.data
         user_history["timestamps"] = {}
         user_history["timestamps"]["borrow_date"] = str(instance.borrow_time.date().strftime("%B %d, %Y"))
         user_history["timestamps"]["borrow_time"] = str(timezone.localtime(instance.borrow_time).strftime("%I:%M %p"))

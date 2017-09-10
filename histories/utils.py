@@ -22,10 +22,10 @@ def calculate_distance(route_line):
         lon2 = route_line[index + 1]["longitude"]
         lat2 = route_line[index + 1]["latitude"]
         distance += haversine(lon1, lat1, lon2, lat2)
-    return "%.1f" % distance
+    return "%.2f" % distance
 
 
 def calculate_duration(start, end):
     time_diff = end - start
     duration = datetime.timedelta(seconds=round(time_diff.total_seconds()))
-    return str(duration)
+    return duration.total_seconds()

@@ -1,3 +1,5 @@
+import json
+
 from django.db import IntegrityError
 from django.utils.decorators import method_decorator
 from rest_framework import serializers
@@ -10,6 +12,7 @@ from bikes.models import Bike, BikeUsagePlan
 from bikes.serializers import BikeSerializer
 from bikes.utils import Sha256Hash
 from histories.models import UserHistory
+from histories.serializers import UserHistorySerializer, LocationSerializer
 from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
 
@@ -20,6 +23,7 @@ class BorrowBikeSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
         super(BorrowBikeSerializer, self).__init__(*args, **kwargs)
+        self.fields["location"] = LocationSerializer()
         self.fields["nonce"] = serializers.IntegerField()
         self.fields["selected_plan"] = serializers.IntegerField()
 
@@ -47,12 +51,19 @@ class BorrowBikeSerializer(serializers.Serializer):
             if UserHistory.objects.filter(user=user, return_time=None).exists():
                 raise serializers.ValidationError("You have not returned the previous bike yet.")
             if PointTransaction.get_point(user) - selected_plan.price >= 0:
-                UserHistory.objects.create(user=user, bike=bike, selected_plan=selected_plan)
+                user_history = UserHistory.objects.create(user=user, bike=bike, selected_plan=selected_plan)
+                location = attrs.get("location")
+                route_line_history = json.loads(user_history.route_line)
+                route_line_history += [location]
+                user_history.route_line = json.dumps(route_line_history)
+                user_history.save()
                 PointTransaction.objects.create(user=user, point=-selected_plan.price,
                                                 transaction_type=PointTransaction.Type.DEPOSIT)
                 bike.save()
                 bike_serializer = BikeSerializer(bike)
+                user_history_serializer = UserHistorySerializer(user_history)
                 return {"bike": bike_serializer.data,
+                        "session": user_history_serializer.data,
                         "point": PointTransaction.get_point(user),
                         "message": hashed_message}
             else:

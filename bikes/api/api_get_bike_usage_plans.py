@@ -10,7 +10,7 @@ from kmitl_bike_django.utils import AbstractAPIView
 class GetBikeUsagePlansView(AbstractAPIView, ListModelMixin):
 
     serializer_class = BikeUsagePlanSerializer
-    queryset = BikeUsagePlan.objects.all()
+    queryset = BikeUsagePlan.objects.all().order_by("price")
 
     @method_decorator(token_required)
     def get(self, request):

@@ -2,92 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61af21fa-e0fd-4442-8841-d5eabcd7b93b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kmitl-bike-django.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/histories/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitlab-ci.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/beelatte.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/kmitl_bike_django.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0002_pointtransaction_comment.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0003_auto_20170501_1304.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20170501_1659.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bikes/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bikes/migrations/0002_bikemodel_bike_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bikes/migrations/0003_auto_20170501_1659.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histories/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/info/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reports/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/versions/migrations/0001_initial.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/admin.py" afterPath="$PROJECT_DIR$/accounts/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/__init__.py" afterPath="$PROJECT_DIR$/accounts/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/api_access_token.py" afterPath="$PROJECT_DIR$/accounts/api/api_access_token.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/api_login.py" afterPath="$PROJECT_DIR$/accounts/api/api_login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/api_logout.py" afterPath="$PROJECT_DIR$/accounts/api/api_logout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/api_profile.py" afterPath="$PROJECT_DIR$/accounts/api/api_profile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/api/api_register.py" afterPath="$PROJECT_DIR$/accounts/api/api_register.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/backends.py" afterPath="$PROJECT_DIR$/accounts/backends.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/models.py" afterPath="$PROJECT_DIR$/accounts/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/serializers.py" afterPath="$PROJECT_DIR$/accounts/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/admin.py" afterPath="$PROJECT_DIR$/bikes/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/__init__.py" afterPath="$PROJECT_DIR$/bikes/api/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/api_borrow_bike.py" afterPath="$PROJECT_DIR$/bikes/api/api_borrow_bike.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/api_get_available_bikes.py" afterPath="$PROJECT_DIR$/bikes/api/api_get_available_bikes.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py" afterPath="$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/api_return_bike.py" afterPath="$PROJECT_DIR$/bikes/api/api_return_bike.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/api/api_update_bike_location.py" afterPath="$PROJECT_DIR$/bikes/api/api_update_bike_location.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/forms.py" afterPath="$PROJECT_DIR$/bikes/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/models.py" afterPath="$PROJECT_DIR$/bikes/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/serializers.py" afterPath="$PROJECT_DIR$/bikes/serializers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bikes/utils.py" afterPath="$PROJECT_DIR$/bikes/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/.bash_history" afterPath="$PROJECT_DIR$/deploy/.bash_history" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/settings.py" afterPath="$PROJECT_DIR$/deploy/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/start_wsgi.sh" afterPath="$PROJECT_DIR$/deploy/start_wsgi.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/stop_wsgi.sh" afterPath="$PROJECT_DIR$/deploy/stop_wsgi.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/admin.py" afterPath="$PROJECT_DIR$/histories/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/api/__init__.py" afterPath="$PROJECT_DIR$/histories/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/api/api_get_user_history.py" afterPath="$PROJECT_DIR$/histories/api/api_get_user_history.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/api/api_get_user_history_list.py" afterPath="$PROJECT_DIR$/histories/api/api_get_user_history_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/api/api_get_user_session.py" afterPath="$PROJECT_DIR$/histories/api/api_get_user_session.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/forms.py" afterPath="$PROJECT_DIR$/histories/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/models.py" afterPath="$PROJECT_DIR$/histories/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/serializers.py" afterPath="$PROJECT_DIR$/histories/serializers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/utils.py" afterPath="$PROJECT_DIR$/histories/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/admin.py" afterPath="$PROJECT_DIR$/info/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/api/__init__.py" afterPath="$PROJECT_DIR$/info/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/api/api_get_credits.py" afterPath="$PROJECT_DIR$/info/api/api_get_credits.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/api/api_get_terms_conditions.py" afterPath="$PROJECT_DIR$/info/api/api_get_terms_conditions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/models.py" afterPath="$PROJECT_DIR$/info/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/serializers.py" afterPath="$PROJECT_DIR$/info/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/decorators.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/decorators.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/settings.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/urls.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/utils.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/wsgi.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/wsgi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/admin.py" afterPath="$PROJECT_DIR$/reports/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/api/__init__.py" afterPath="$PROJECT_DIR$/reports/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/api/api_get_report_type.py" afterPath="$PROJECT_DIR$/reports/api/api_get_report_type.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/api/api_send_feedback.py" afterPath="$PROJECT_DIR$/reports/api/api_send_feedback.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/api/api_send_report.py" afterPath="$PROJECT_DIR$/reports/api/api_send_report.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/models.py" afterPath="$PROJECT_DIR$/reports/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reports/serializers.py" afterPath="$PROJECT_DIR$/reports/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/terms_conditions.html" afterPath="$PROJECT_DIR$/templates/terms_conditions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/admin.py" afterPath="$PROJECT_DIR$/versions/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/api/__init__.py" afterPath="$PROJECT_DIR$/versions/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/api/api_check_update.py" afterPath="$PROJECT_DIR$/versions/api/api_check_update.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/forms.py" afterPath="$PROJECT_DIR$/versions/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/models.py" afterPath="$PROJECT_DIR$/versions/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/serializers.py" afterPath="$PROJECT_DIR$/versions/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/utils.py" afterPath="$PROJECT_DIR$/versions/utils.py" />
     </list>
     <ignored path="kmitl_bike_django.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,31 +37,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api_login.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/api/api_login.py">
+      <file leaf-file-name="api_borrow_bike.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bikes/api/api_borrow_bike.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state relative-caret-position="315">
+              <caret line="27" column="65" lean-forward="true" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/histories/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="backends.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/backends.py">
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/histories/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="62" column="28" lean-forward="false" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+            <state relative-caret-position="63">
+              <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_access_token.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api_get_bike_usage_plans.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_access_token.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/api/api_access_token.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="126">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/histories/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_update_bike_location.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bikes/api/api_update_bike_location.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="36" column="64" lean-forward="true" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_return_bike.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bikes/api/api_return_bike.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_get_user_session.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_session.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -207,20 +202,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/histories/admin.py" />
         <option value="$PROJECT_DIR$/versions/serializers.py" />
         <option value="$PROJECT_DIR$/versions/admin.py" />
         <option value="$PROJECT_DIR$/reports/admin.py" />
         <option value="$PROJECT_DIR$/reports/serializers.py" />
         <option value="$PROJECT_DIR$/reports/models.py" />
         <option value="$PROJECT_DIR$/../django-sook/sook_sad/sook_sad/settings.py" />
-        <option value="$PROJECT_DIR$/histories/utils.py" />
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/bikes/api/api_get_usage_plans.py" />
         <option value="$PROJECT_DIR$/bikes/api/api_get_available_bikes.py" />
         <option value="$PROJECT_DIR$/histories/api/api_get_user_history.py" />
-        <option value="$PROJECT_DIR$/histories/api/api_get_user_session.py" />
         <option value="$PROJECT_DIR$/info/api/api_get_terms_conditions.py" />
         <option value="$PROJECT_DIR$/reports/api/api_get_report_type.py" />
         <option value="$PROJECT_DIR$/reports/api/api_send_feedback.py" />
@@ -232,32 +224,35 @@
         <option value="$PROJECT_DIR$/reports/api/__init__.py" />
         <option value="$PROJECT_DIR$/versions/api/__init__.py" />
         <option value="$PROJECT_DIR$/bikes/api/__init__.py" />
-        <option value="$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py" />
         <option value="$PROJECT_DIR$/info/api/api_get_credits.py" />
         <option value="$PROJECT_DIR$/kmitl_bike_django/decorators.py" />
         <option value="$PROJECT_DIR$/bikes/constants.py" />
         <option value="$PROJECT_DIR$/kmitl_bike_django/urls.py" />
-        <option value="$PROJECT_DIR$/bikes/models.py" />
         <option value="$PROJECT_DIR$/bikes/admin.py" />
-        <option value="$PROJECT_DIR$/bikes/utils.py" />
         <option value="$PROJECT_DIR$/accounts/api/api_logout.py" />
         <option value="$PROJECT_DIR$/histories/api/api_get_user_history_list.py" />
         <option value="$PROJECT_DIR$/kmitl_bike_django/settings.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/accounts/serializers.py" />
-        <option value="$PROJECT_DIR$/accounts/api/api_register.py" />
         <option value="$PROJECT_DIR$/accounts/api/api_login.py" />
-        <option value="$PROJECT_DIR$/bikes/api/api_update_bike_location.py" />
         <option value="$PROJECT_DIR$/versions/models.py" />
-        <option value="$PROJECT_DIR$/histories/serializers.py" />
-        <option value="$PROJECT_DIR$/bikes/api/api_return_bike.py" />
         <option value="$PROJECT_DIR$/info/serializers.py" />
         <option value="$PROJECT_DIR$/accounts/api/api_access_token.py" />
         <option value="$PROJECT_DIR$/accounts/api/api_profile.py" />
         <option value="$PROJECT_DIR$/versions/forms.py" />
         <option value="$PROJECT_DIR$/versions/api/api_check_update.py" />
-        <option value="$PROJECT_DIR$/bikes/api/api_borrow_bike.py" />
         <option value="$PROJECT_DIR$/accounts/backends.py" />
+        <option value="$PROJECT_DIR$/bikes/utils.py" />
+        <option value="$PROJECT_DIR$/bikes/models.py" />
+        <option value="$PROJECT_DIR$/accounts/serializers.py" />
+        <option value="$PROJECT_DIR$/histories/api/api_get_user_session.py" />
+        <option value="$PROJECT_DIR$/accounts/api/api_register.py" />
+        <option value="$PROJECT_DIR$/histories/utils.py" />
+        <option value="$PROJECT_DIR$/bikes/api/api_update_bike_location.py" />
+        <option value="$PROJECT_DIR$/bikes/serializers.py" />
+        <option value="$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py" />
+        <option value="$PROJECT_DIR$/histories/serializers.py" />
+        <option value="$PROJECT_DIR$/bikes/api/api_return_bike.py" />
+        <option value="$PROJECT_DIR$/bikes/api/api_borrow_bike.py" />
       </list>
     </option>
   </component>
@@ -268,9 +263,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="27" />
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="x" value="787" />
+    <option name="y" value="9" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -291,7 +287,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,7 +314,24 @@
             <path>
               <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
               <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="bikes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="bikes" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
               <item name="histories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="histories" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
@@ -358,6 +370,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -701,16 +714,15 @@
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.198174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33472803" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3448276" sideWeight="0.49791667" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34590518" sideWeight="0.49791667" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26154673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43426725" sideWeight="0.49791667" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -720,6 +732,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -744,48 +757,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/versions/api/api_check_update.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/api/api_return_bike.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="45" lean-forward="false" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histories/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histories/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/api/api_update_bike_location.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="40" column="27" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/versions/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -880,34 +851,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bikes/constants.py" />
     <entry file="file:///usr/lib64/python3.5/site-packages/Crypto/PublicKey/RSA.py" />
-    <entry file="file://$PROJECT_DIR$/histories/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="62" lean-forward="true" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="45" column="59" lean-forward="true" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml" />
     <entry file="file://$PROJECT_DIR$/accounts/api/api_logout.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -917,41 +860,6 @@
       </provider>
     </entry>
     <entry file="file:///usr/lib/python3.5/site-packages/rest_framework/generics.py" />
-    <entry file="file://$PROJECT_DIR$/bikes/api/api_get_available_bikes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kmitl_bike_django/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_history_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -982,51 +890,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/api/api_register.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/api/api_update_bike_location.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/versions/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="61" column="9" lean-forward="false" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histories/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bikes/api/api_return_bike.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,15 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/api/api_profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,6 +915,192 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/versions/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/api/api_get_available_bikes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/api/api_register.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/backends.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/api/api_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="91" column="17" lean-forward="true" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_history.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#52#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_history_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/api/api_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kmitl_bike_django/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histories/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/api/api_update_bike_location.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="36" column="64" lean-forward="true" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bikes/api/api_get_bike_usage_plans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/api/api_access_token.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1065,32 +1108,20 @@
     <entry file="file://$PROJECT_DIR$/bikes/api/api_borrow_bike.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding />
+          <caret line="27" column="65" lean-forward="true" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/api/api_login.py">
+    <entry file="file://$PROJECT_DIR$/bikes/api/api_return_bike.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/backends.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="62" column="28" lean-forward="false" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/api/api_access_token.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="294">
+          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

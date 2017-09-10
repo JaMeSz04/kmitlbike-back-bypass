@@ -10,7 +10,7 @@ from rest_framework.status import *
 from accounts.models import PointTransaction
 from bikes.models import Bike
 from histories.models import UserHistory
-from histories.serializers import RouteLineSerializer
+from histories.serializers import LocationSerializer
 from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
 
@@ -19,7 +19,7 @@ class ReturnBikeSerializer(serializers.Serializer):
 
     def __init__(self, *args, **kwargs):
         super(ReturnBikeSerializer, self).__init__(*args, **kwargs)
-        self.fields["route_line"] = RouteLineSerializer()
+        self.fields["location"] = LocationSerializer()
         self.fields["cancel"] = serializers.BooleanField(required=False)
 
     def validate(self, attrs):
@@ -28,17 +28,16 @@ class ReturnBikeSerializer(serializers.Serializer):
         user_history = UserHistory.objects.filter(user=user, bike=bike, return_time__isnull=True).last()
         if user_history is None:
             raise serializers.ValidationError("You already returned the bike.")
-        route_line = attrs.get("route_line")
+        location = attrs.get("location")
         route_line_history = json.loads(user_history.route_line)
-        route_line_history += route_line
+        route_line_history += [location]
         user_history.route_line = json.dumps(route_line_history)
         user_history.return_time = timezone.now()
         user_history.save()
-        if len(route_line_history) > 0:
-            last_location = route_line_history[-1]
-            latitude = last_location.get("latitude")
-            longitude = last_location.get("longitude")
-            user_history.bike.location = "%s,%s" % (latitude, longitude)
+
+        latitude = location.get("latitude")
+        longitude = location.get("longitude")
+        user_history.bike.location = "%s,%s" % (latitude, longitude)
         user_history.bike.is_available = True
         user_history.bike.save()
 
@@ -47,9 +46,18 @@ class ReturnBikeSerializer(serializers.Serializer):
             PointTransaction.objects.create(user=user, point=user_history.selected_plan.price,
                                             transaction_type=PointTransaction.Type.REFUND)
         else:
-            minutes_overdue = total_duration - user_history.selected_plan.period // 60
-            PointTransaction.objects.create(user=user, point=-minutes_overdue,
-                                            transaction_type=PointTransaction.Type.PENALTY)
+            minutes_overdue = (total_duration - user_history.selected_plan.period) // 60
+            current_point = PointTransaction.get_point(user)
+            if minutes_overdue > 0:
+                if current_point - minutes_overdue <= 0:
+                    PointTransaction.objects.create(user=user, point=-current_point,
+                                                    transaction_type=PointTransaction.Type.PENALTY)
+                else:
+                    PointTransaction.objects.create(user=user, point=-minutes_overdue,
+                                                    transaction_type=PointTransaction.Type.PENALTY)
+            else:
+                PointTransaction.objects.create(user=user, point=user_history.selected_plan.price,
+                                                transaction_type=PointTransaction.Type.REFUND)
         if attrs.get("cancel"):
             user_history.delete()
         point_left = PointTransaction.get_point(user)

@@ -67,21 +67,6 @@ class KMITLBackend(object):
                     return KMITLBackend.Status.FIRST_TIME, None
             else:
                 return KMITLBackend.Status.CONNECTION_FAIL, None
-                # requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
-                # response = requests.post(KMITLBackend.NAC_KMITL_URL, form_data, headers=headers, verify=False, allow_redirects=False)
-                # if response.status_code == 302:
-                #     if KMITLBackend.is_authenticated(response):
-                #         user = KMITLBackend.get_user(username)
-                #         if user:
-                #             KMITLBackend.get_user_information(username, password, user)
-                #             token, _ = Token.objects.get_or_create(user=user)
-                #             return KMITLBackend.Status.ALREADY_EXISTS, token
-                #         else:
-                #             return KMITLBackend.Status.FIRST_TIME, None
-                #     else:
-                #         return KMITLBackend.Status.INVALID, None
-                # else:
-                #     return KMITLBackend.Status.CONNECTION_FAIL, None
         except requests.HTTPError:
             return KMITLBackend.Status.CONNECTION_FAIL, None
 

@@ -19,7 +19,9 @@ class BikeModel(AbstractModel):
         return self.model_name
 
     def get_thumbnail(self):
-        return u'<img src="%s" width=257 height=180 />' % self.bike_image.url
+        if self.bike_image:
+            return u'<img src="%s" width=257 height=180 />' % self.bike_image.url
+        return None
 
 
 class Bike(AbstractModel):

@@ -26,6 +26,8 @@ class RegisterSerializer(serializers.Serializer):
         try:
             gender = attrs.pop("gender")
             phone_no = attrs.pop("phone_no")
+            username = attrs.pop("username")
+            attrs["username"] = username.replace("@kmitl.ac.th", "")
             user = User.objects.create(**attrs)
             user_profile = UserProfile.objects.create(user=user, gender=gender, phone_no=phone_no)
             PointTransaction.objects.create(user=user, point=DEFAULT_POINTS,
