@@ -26,12 +26,14 @@ class Report(AbstractModel):
         verbose_name_plural = "Reports"
 
     class Type:
+        AUTOMATIC = 0
         APP_PROBLEM = 1
         BIKE_PROBLEM = 2
         SUGGESTION = 3
         OTHER = 4
 
     _type = (
+        (Type.AUTOMATIC, "Automatic"),
         (Type.APP_PROBLEM, "App Usage Problem"),
         (Type.BIKE_PROBLEM, "Bike Usage Problem"),
         (Type.SUGGESTION, "Suggestions"),
@@ -44,7 +46,7 @@ class Report(AbstractModel):
 
     @staticmethod
     def get_type():
-        return Report._type
+        return Report._type[1:]
 
     def __str__(self):
         return str(self.id)

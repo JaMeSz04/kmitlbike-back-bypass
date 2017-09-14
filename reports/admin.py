@@ -23,4 +23,4 @@ class ReportAdmin(AbstractAdmin):
     list_display = ("user", "type_name", "detail")
 
     def type_name(self, instance):
-        return Report.get_type()[instance.report_type][1]
+        return dict(Report.get_type())[instance.report_type]
