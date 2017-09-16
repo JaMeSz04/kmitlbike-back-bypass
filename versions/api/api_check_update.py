@@ -26,6 +26,7 @@ class CheckUpdateSerializer(serializers.Serializer):
             latest_version = Version(app_version.version_code)
             if current_version < latest_version:
                 data = AppVersionSerializer(app_version).data
+                print(data)
                 data["required_update"] = True
                 return data
             return {"required_update": False}

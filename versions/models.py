@@ -11,8 +11,8 @@ class AppVersion(AbstractModel):
         unique_together = ("platform", "version_code")
 
     class Platform(object):
-        ANDROID = "Android"
-        IOS = "iOS"
+        ANDROID = "android"
+        IOS = "ios"
 
     _type = (
         (Platform.ANDROID, "Andriod"),

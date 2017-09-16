@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import register
 
-from info.models import Credit, Position
+from info.models import Credit, Position, License
 from kmitl_bike_django.utils import AbstractAdmin
 
 
@@ -21,3 +21,12 @@ class CreditAdmin(AbstractAdmin):
         model = Credit
 
     list_display = ("name", "position")
+
+
+@register(License, site=admin.site)
+class LicenseAdmin(AbstractAdmin):
+
+    class Meta:
+        model = License
+
+    list_display = ("name", "copyright", "url")

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from info.models import Credit
+from info.models import Credit, License
 
 
 class CreditSerializer(serializers.ModelSerializer):
@@ -14,3 +14,10 @@ class CreditSerializer(serializers.ModelSerializer):
         credit.pop("position")
         credit["position"] = instance.position.name
         return credit
+
+
+class LicenseSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = License
+        fields = ("name", "copyright", "url", "license")

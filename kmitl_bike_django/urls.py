@@ -26,12 +26,14 @@ urlpatterns = [
     url(r'^api/v1/users/(?P<user_id>\d+)/session', api_get_user_session.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/histories/list', api_get_user_history_list.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/histories/(?P<hist_id>\d+)', api_get_user_history.as_view()),
+    url(r'^api/v1/users/(?P<user_id>\d+)/points/list', api_get_point_history_list.as_view()),
     url(r'^api/v1/reports/types/list', api_get_report_type.as_view()),
     url(r'^api/v1/reports/send_report', api_send_report.as_view()),
     url(r'^api/v1/reports/send_feedback', api_send_feedback.as_view()),
     url(r'^api/v1/versions/check', api_check_update.as_view()),
     url(r'^api/v1/info/terms_conditions', api_get_terms_conditions.as_view()),
     url(r'^api/v1/info/credits', api_get_credits.as_view()),
+    url(r'^api/v1/info/licenses', api_get_licenses.as_view()),
 ]
 
 if settings.DEBUG:

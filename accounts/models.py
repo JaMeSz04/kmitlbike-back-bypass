@@ -99,3 +99,7 @@ class PointTransaction(AbstractModel):
     @staticmethod
     def autocomplete_search_fields():
         return "user__username", "user__first_name", "user__last_name"
+
+    @staticmethod
+    def get_type():
+        return PointTransaction._type

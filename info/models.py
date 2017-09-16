@@ -28,3 +28,18 @@ class Credit(AbstractModel):
 
     def __str__(self):
         return self.name
+
+
+class License(AbstractModel):
+
+    class Meta:
+        verbose_name = "License"
+        verbose_name_plural = "Licenses"
+
+    name = models.CharField("Name", max_length=128, null=False, blank=False)
+    copyright = models.CharField("Copyright", max_length=128, null=False, blank=False)
+    url = models.CharField("Project URL", max_length=128, null=False, blank=True)
+    license = models.CharField("License", max_length=128, null=False, blank=True)
+
+    def __str__(self):
+        return self.name
