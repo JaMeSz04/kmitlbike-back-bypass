@@ -9,7 +9,6 @@ from rest_framework.status import *
 
 from accounts.models import PointTransaction
 from bikes.models import Bike, BikeUsagePlan
-from bikes.serializers import BikeSerializer
 from bikes.utils import Sha256Hash
 from histories.models import UserHistory
 from histories.serializers import UserHistorySerializer, LocationSerializer
@@ -60,10 +59,8 @@ class BorrowBikeSerializer(serializers.Serializer):
                 PointTransaction.objects.create(user=user, point=-selected_plan.price,
                                                 transaction_type=PointTransaction.Type.DEPOSIT)
                 bike.save()
-                bike_serializer = BikeSerializer(bike)
                 user_history_serializer = UserHistorySerializer(user_history)
-                return {"bike": bike_serializer.data,
-                        "session": user_history_serializer.data,
+                return {"session": user_history_serializer.data,
                         "point": PointTransaction.get_point(user),
                         "message": hashed_message}
             else:
