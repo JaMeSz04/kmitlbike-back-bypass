@@ -1,3 +1,10 @@
-/.project
-*.pyc 
+;;extensions to ignore
+*.log
+*.pot
+*.pyc
+;;directories to ignore
 .idea/
+
+
+;;files to ignore
+db.sqlite3
