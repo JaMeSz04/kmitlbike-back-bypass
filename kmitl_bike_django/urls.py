@@ -22,6 +22,9 @@ urlpatterns = [
     url(r'^api/v1/bikes/(?P<bike_id>\d+)/borrow', api_borrow_bike.as_view()),
     url(r'^api/v1/bikes/(?P<bike_id>\d+)/return', api_return_bike.as_view()),
     url(r'^api/v1/bikes/update', api_update_bike_location.as_view()),
+    ##
+    url(r'^api/v1/bikes/current_used', api_get_current_used_bike.as_view()),
+    ##
     url(r'^api/v1/users/(?P<user_id>\d+)/profile', api_profile.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/session', api_get_user_session.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/histories/list', api_get_user_history_list.as_view()),
