@@ -1,0 +1,36 @@
+upstream kmitl_bike {
+	server	116.251.223.120:8000;
+}
+
+server {
+	
+	listen	80;
+
+	server_name 116.251.223.120;
+	
+	root /home/beelatte/kmitl-bike-django/kmitl_bike_django;
+	charset	utf-8;
+	
+	client_max_body_size	200M;
+
+	access_log  /var/log/nginx/kmitl_bike.access.log;
+	error_log  /var/log/nginx/kmitl_bike.error.log;
+
+	location /static/ {
+		autoindex on;
+		alias /home/beelatte/kmitl-bike-django/static/;
+	}
+
+	location /media/ {
+		autoindex on;
+		alias /home/beelatte/kmitl-bike-django/media/;
+	}
+
+	location / {
+		proxy_redirect	off;
+		proxy_set_header Host $host;
+		proxy_pass	http://kmitl_bike;
+		include		/etc/nginx/uwsgi_params;
+	}
+
+}
