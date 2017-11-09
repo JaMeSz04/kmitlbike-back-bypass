@@ -9,6 +9,7 @@ from histories.api import *
 from info.api import *
 from reports.api import *
 from versions.api import *
+from chat.api import *
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),
@@ -24,6 +25,10 @@ urlpatterns = [
     url(r'^api/v1/bikes/update', api_update_bike_location.as_view()),
     ##
     url(r'^api/v1/bikes/current_used', api_get_current_used_bike.as_view()),
+
+    url(r'^api/v1/chat/get_messages', api_get_messages.as_view()),
+    url(r'^api/v1/chat/get_read_messages', api_get_unread_messages.as_view()),
+    url(r'^api/v1/chat/get_unread_messages', api_get_read_messages.as_view()),
     ##
     url(r'^api/v1/users/(?P<user_id>\d+)/profile', api_profile.as_view()),
     url(r'^api/v1/users/(?P<user_id>\d+)/session', api_get_user_session.as_view()),

@@ -63,7 +63,6 @@ class BikePassword(AbstractModel):
 
     bike = models.OneToOneField(Bike, null=False, blank=False)
 
-
     def __str__(self):
         return self.bike.bike_name
 
