@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     "reports",
     "versions",
     "chat",
-    "channels",
+    #"channels",
 ]
 
 MIDDLEWARE = [
