@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61af21fa-e0fd-4442-8841-d5eabcd7b93b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/histories/api/api_get_point_history_list.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info/api/api_get_licenses.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bikes/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histories/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/info/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/info/migrations/0002_license.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/keys/private.key" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/keys/public.key" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/uploads/2017_05_01/063610225598.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/uploads/2017_05_01/063633063265.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/uploads/2017_06_25/100558308618.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/uploads/2017_06_25/100609370022.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/reports/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/versions/migrations/0001_initial.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/models.py" afterPath="$PROJECT_DIR$/accounts/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/serializers.py" afterPath="$PROJECT_DIR$/accounts/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/histories/api/__init__.py" afterPath="$PROJECT_DIR$/histories/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/admin.py" afterPath="$PROJECT_DIR$/info/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/api/__init__.py" afterPath="$PROJECT_DIR$/info/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/api/api_get_terms_conditions.py" afterPath="$PROJECT_DIR$/info/api/api_get_terms_conditions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/models.py" afterPath="$PROJECT_DIR$/info/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info/serializers.py" afterPath="$PROJECT_DIR$/info/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmitl_bike_django/urls.py" afterPath="$PROJECT_DIR$/kmitl_bike_django/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/api/api_check_update.py" afterPath="$PROJECT_DIR$/versions/api/api_check_update.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/versions/models.py" afterPath="$PROJECT_DIR$/versions/models.py" />
     </list>
     <ignored path="kmitl_bike_django.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
@@ -71,6 +71,16 @@
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/versions/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-890">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,18 +131,6 @@
             <state relative-caret-position="168">
               <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -334,6 +332,12 @@
             <path>
               <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
               <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="bikes" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
               <item name="histories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,6 +377,11 @@
             <path>
               <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
               <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
               <item name="reports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,6 +389,12 @@
               <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
               <item name="reports" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kmitl-bike-django" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kmitl-bike-django" type="b2602c69:ProjectViewProjectNode" />
@@ -744,7 +759,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20354457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -754,7 +768,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3448276" sideWeight="0.49791667" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43426725" sideWeight="0.49791667" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43426725" sideWeight="0.49791667" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -789,13 +803,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/accounts/api/api_profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/histories/api/api_get_user_history.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-186">
@@ -1080,14 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/versions/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/versions/api/api_check_update.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -1198,6 +1197,19 @@
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/versions/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-890">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/uploads/2017_05_01/063633063265.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
