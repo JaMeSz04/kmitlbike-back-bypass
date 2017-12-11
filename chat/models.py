@@ -3,7 +3,6 @@ from django.db import models
 
 from kmitl_bike_django.utils import AbstractModel
 
-
 class Message(AbstractModel):
     class Meta:
         verbose_name = "Message"
@@ -44,3 +43,5 @@ class Messenger(AbstractModel):
 
     user_id = models.TextField(User, null=False, blank=False)
     message_id = models.TextField(Message, null=False, blank=False)
+
+

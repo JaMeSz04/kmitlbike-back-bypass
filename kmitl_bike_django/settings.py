@@ -27,8 +27,15 @@ INSTALLED_APPS = [
     "reports",
     "versions",
     "chat",
-    #"channels",
+    "channels",
 ]
+
+CHANNEL_LAYERS = {
+    'default' : {
+        'BACKEND' : 'asgiref.inmemory.ChannelLayer',
+        'ROUTING' : 'chat.routing.channel_routing'
+    }
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
