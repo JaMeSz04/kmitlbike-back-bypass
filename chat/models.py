@@ -3,6 +3,7 @@ from django.db import models
 
 from kmitl_bike_django.utils import AbstractModel
 
+
 class Message(AbstractModel):
     class Meta:
         verbose_name = "Message"
@@ -26,14 +27,14 @@ class Message(AbstractModel):
         (Type.IMAGE, "Image")
     )
 
-    payload = models.TextField("Payload", null=False, blank=False)
-    status = models.IntegerField("Status", null=False, blank=False, choices=_status)
-    send_time = models.DateTimeField("Send time", auto_now_add=True, null=False, blank=False)
-    type = models.IntegerField("Type", null=False, blank=False, choices=_type)
-    sender = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    text = models.TextField("text", null=False, blank=False)
+    status = models.IntegerField("status", choices=_status)
+    datetime = models.DateTimeField("datetime", auto_now_add=True)
+    type = models.IntegerField("type", choices=_type)
+    sender = models.TextField("sender", null=False, blank=False)
 
     def __str__(self):
-        return str(self.payload)
+        return str(self.text)
 
 
 class Messenger(AbstractModel):
@@ -41,7 +42,17 @@ class Messenger(AbstractModel):
         verbose_name = "Messenger"
         verbose_name_plural = "Messengers"
 
-    user_id = models.TextField(User, null=False, blank=False)
-    message_id = models.TextField(Message, null=False, blank=False)
+    room_name = models.TextField("room_name", null=False, blank=False)
+    message = models.ForeignKey(Message, null=False, blank=False)
+
+
+class Room(AbstractModel):
+    class Meta:
+        verbose_name = "Room"
+        verbose_name_plural = "Room"
+
+    room_name = models.TextField("room_name", null=False, blank=False)
+    user = models.TextField("user", null=False, blank=False)
+
 
 

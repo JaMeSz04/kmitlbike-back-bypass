@@ -3,19 +3,22 @@ import json
 from django.utils import timezone
 from rest_framework import serializers
 
-from chat.models import Message
-from chat.models import Messenger
+from chat.models import *
 
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ("id", "payload", "status", "datetime", "type")
+        fields = ("id", "text", "status", "datetime", "type", "sender")
 
 
 class MessengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Messenger
-        fields = ("id", "user_id", "message_id")
+        fields = ("id", "room_name", "message")
 
 
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ("id", "room_name", "user")
