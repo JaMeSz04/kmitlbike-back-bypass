@@ -7,8 +7,6 @@ from kmitl_bike_django.utils import AbstractAPIView
 from kmitl_bike_django.decorators import token_required
 
 
-
-
 class GetCurrentUsedBikesView(AbstractAPIView, ListModelMixin):
     serializer_class = CurrentUsedBikeSerializer
     queryset = UserHistory.objects.filter(return_time=None)
