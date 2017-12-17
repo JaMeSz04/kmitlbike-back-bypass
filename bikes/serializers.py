@@ -3,7 +3,7 @@ import json
 from django.utils import timezone
 from rest_framework import serializers
 
-from bikes.models import Bike, BikeUsagePlan, BikeModel
+from bikes.models import Bike, BikeUsagePlan, BikeModel, BikeStatus
 from accounts.serializers import UserProfileSerializer
 from accounts.models import UserProfile
 from histories.models import UserHistory
@@ -71,12 +71,11 @@ class CurrentUsedBikeSerializer(serializers.ModelSerializer):
         user_history["route_line"] = route[len(route)-1]
         return user_history
 
-'''
-class UserHistoryListSerializer(CurrentUsedBikeSerializer):
 
-    def to_representation(self, instance):
-        user_history = super(UserHistoryListSerializer, self).to_representation(instance)
-        user_history.pop("route_line")
-        return user_history
-'''
+class BikeStatusSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = BikeStatus
+        fields = ("id", "bike", "status")
+
 

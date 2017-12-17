@@ -39,6 +39,7 @@ class Bike(AbstractModel):
     is_available = models.BooleanField("Is available", default=True, null=False, blank=False)
     location = PlainLocationField(zoom=15, null=False, blank=False, default=GOOGLE_DEFAULT_LOCATION)
 
+
     def __str__(self):
         return self.bike_name
 
@@ -79,3 +80,25 @@ class BikeUsagePlan(AbstractModel):
 
     def __str__(self):
         return self.plan_name
+
+
+class BikeStatus(AbstractModel):
+
+    class Meta:
+        verbose_name = "Bike's Status"
+        verbose_name_plural = "Bikes' Status"
+
+    class Status(object):
+        ACTIVE = 1
+        INACTIVE = 2
+
+    _status = (
+        (Status.ACTIVE, "Active"),
+        (Status.INACTIVE, "Inactive")
+    )
+
+    bike = models.ForeignKey(Bike, null=False, blank=False)
+    status = models.IntegerField("status", choices=_status, null=False, blank=False)
+
+    def __str__(self):
+        return self.get_status_display()
