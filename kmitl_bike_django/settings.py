@@ -6,7 +6,7 @@ SECRET_KEY = "t2ft2hs5u1a*ry!2vm#y47qi9n1w@yo_t*qa7$1m$19*lpd2mz"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*","https://bike-backend-temp.herokuapp.com/"]
+ALLOWED_HOSTS = ["*","bike-backend-temp.herokuapp.com"]
 
 INSTALLED_APPS = [
     "jet",
