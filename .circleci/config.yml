@@ -50,13 +50,14 @@ jobs:
             . venv/bin/activate
             python manage.py test
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
-
-  deployment:
-    staging:
-      branch: master
-        heroku:
-        appname: kmitl-bike-django
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "48:60:d5:7f:a0:d6:3d:8d:8f:58:41:32:a2:fb:f2:37"
+      - deploy:
+          name : Deploy Master to Heroku
+          command : |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+              heroku restart
+            fi
