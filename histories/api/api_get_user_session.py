@@ -17,7 +17,7 @@ class GetUserSessionView(AbstractAPIView):
 
     serializer_class = UserHistorySerializer
 
-    #@method_decorator(token_required)
+    @method_decorator(token_required)
     def get(self, request, user_id=None):
         user_history = UserHistory.objects.filter(user=request.user, return_time__isnull=True).last()
         if user_history is None:
