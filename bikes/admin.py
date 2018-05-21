@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import register
 
 from bikes.forms import BikeForm
-from bikes.models import BikeModel, Bike, BikeUsagePlan
+from bikes.models import BikeModel, Bike, BikeUsagePlan, BikeStatus
 from kmitl_bike_django.utils import AbstractAdmin
 
 
@@ -39,3 +39,14 @@ class BikeUsagePlanAdmin(AbstractAdmin):
         model = BikeUsagePlan
 
     list_display = ("plan_name", "period", "price")
+
+
+@register(BikeStatus, site=admin.site)
+class BikeStatus(AbstractAdmin):
+
+    class Meta:
+        model = BikeStatus
+
+    list_display = ("bike_id", "status")
+
+

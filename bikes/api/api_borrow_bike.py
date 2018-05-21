@@ -1,3 +1,4 @@
+
 import json
 
 from django.db import IntegrityError
@@ -14,6 +15,7 @@ from histories.models import UserHistory
 from histories.serializers import UserHistorySerializer, LocationSerializer
 from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
+
 
 
 class BorrowBikeSerializer(serializers.Serializer):
@@ -88,6 +90,7 @@ class BorrowBikeView(AbstractAPIView):
 
     @method_decorator(token_required)
     def post(self, request, bike_id=None):
+
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)
