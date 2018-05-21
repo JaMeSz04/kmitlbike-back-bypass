@@ -17,6 +17,7 @@ from kmitl_bike_django.decorators import token_required
 from kmitl_bike_django.utils import AbstractAPIView
 
 
+
 class BorrowBikeSerializer(serializers.Serializer):
 
     BORROW_COMMAND = "BORROW,<<MAC_ADDRESS>>,<<NONCE>>,<<PASSWORD>>"
@@ -89,6 +90,7 @@ class BorrowBikeView(AbstractAPIView):
 
     @method_decorator(token_required)
     def post(self, request, bike_id=None):
+
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)

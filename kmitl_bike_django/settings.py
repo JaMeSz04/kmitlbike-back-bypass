@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "versions",
     "chat",
     "channels",
+    "operation_day"
 ]
 
 CHANNEL_LAYERS = {
