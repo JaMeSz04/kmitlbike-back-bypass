@@ -38,12 +38,16 @@ class BorrowBikeSerializer(serializers.Serializer):
         bike_mac_address = bike.mac_address
         bike_key = bike.bike_key
         message = BorrowBikeSerializer.BORROW_COMMAND
+        print(bike_mac_address)
+        print(nonce)
+        print(bike_key)
         message = message.replace("<<MAC_ADDRESS>>", bike_mac_address)\
             .replace("<<NONCE>>", str(nonce))\
             .replace("<<PASSWORD>>", bike_key)
         hashed_message = Sha256Hash.hash(message)
         user = self.context.get("request").user
         selected_plan = attrs.get("selected_plan")
+        print(hashed_message)
         try:
             selected_plan = BikeUsagePlan.objects.get(id=selected_plan)
         except BikeUsagePlan.DoesNotExist:

@@ -4,9 +4,10 @@ from rest_framework.response import Response
 from rest_framework.status import *
 
 from accounts.backends import KMITLBackend
-from accounts.models import UserProfile
+from accounts.models import UserProfile, User
 from accounts.serializers import UserProfileSerializer
 from kmitl_bike_django.utils import AbstractAPIView
+
 
 
 class LoginSerializer(serializers.Serializer):
@@ -17,6 +18,7 @@ class LoginSerializer(serializers.Serializer):
         self.fields["password"] = serializers.CharField()
 
     def validate(self, attrs):
+
         username = attrs.get("username")
         password = attrs.get("password")
         result, token = KMITLBackend.authenticate(username, password)
@@ -47,8 +49,10 @@ class LoginView(AbstractAPIView):
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
+
         if serializer.is_valid():
             return Response(serializer.validated_data, status=HTTP_200_OK)
+
         error_message = self.get_error_message(serializer.errors)
         return Response({"detail": error_message}, status=HTTP_400_BAD_REQUEST)
 

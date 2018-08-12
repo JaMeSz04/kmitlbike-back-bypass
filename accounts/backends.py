@@ -32,6 +32,7 @@ class KMITLBackend(object):
 
     @staticmethod
     def authenticate(username=None, password=None):
+
         username = username.replace("@kmitl.ac.th", "")
         headers = {
             "Accept": "*/*",
@@ -45,13 +46,16 @@ class KMITLBackend(object):
             "manage_pass": password,
             "PeopleType": KMITLBackend.get_user_type(username),
             "accept": "+ยอมรับ+(Accept)+"}
+        '''
         try:
+
+            
             response = requests.post(KMITLBackend.IAM_KMITL_URL,
                                      form_data,
                                      headers=headers,
                                      verify=False,
                                      allow_redirects=False)
-
+            
             if response.status_code == 200:
                 response.encoding = "utf-8"
                 soup = BeautifulSoup(response.text, "html.parser")
@@ -67,8 +71,19 @@ class KMITLBackend(object):
                     return KMITLBackend.Status.FIRST_TIME, None
             else:
                 return KMITLBackend.Status.CONNECTION_FAIL, None
+                
         except requests.HTTPError:
+
             return KMITLBackend.Status.CONNECTION_FAIL, None
+            '''
+        print("hehe")
+        user = KMITLBackend.get_user(username)
+        if user:
+            token, _ = Token.objects.get_or_create(user=user)
+            return KMITLBackend.Status.ALREADY_EXISTS, token
+        else:
+            return KMITLBackend.Status.FIRST_TIME, None
+
 
     @staticmethod
     def is_authenticated(responses):

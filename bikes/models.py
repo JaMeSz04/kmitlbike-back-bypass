@@ -34,7 +34,7 @@ class Bike(AbstractModel):
     bike_model = models.ForeignKey(BikeModel, null=False, blank=False)
     mac_address = models.CharField("MAC address", max_length=32, unique=True, null=True, blank=True)
     barcode = models.CharField("Barcode", unique=True, max_length=255, null=False, blank=False)
-    bike_key = models.CharField("Bike key", max_length=128, unique=True, null=False, blank=False)
+    bike_key = models.CharField("Bike key", max_length=128, unique=False, null=False, blank=False)
     serial_no = models.CharField("Serial no.", unique=True, max_length=32, null=True, blank=True)
     is_available = models.BooleanField("Is available", default=True, null=False, blank=False)
     location = PlainLocationField(zoom=15, null=False, blank=False, default=GOOGLE_DEFAULT_LOCATION)
